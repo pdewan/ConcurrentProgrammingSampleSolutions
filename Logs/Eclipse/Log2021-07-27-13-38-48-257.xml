@@ -1,0 +1,111 @@
+<Events startTimestamp="1627407528257" logVersion="1.0.0.202106120908">
+  <Command __id="27463" _type="PauseCommand" date="Thu Jul 29 20:01:20 EDT 2021" range="2s-5s" starttimestamp="1627407528257" timestamp="195752329">
+    <prevType><![CDATA[Lost Focus]]></prevType>
+    <prev><![CDATA[ShellCommand]]></prev>
+    <pause><![CDATA[2457]]></pause>
+    <nextType><![CDATA[Gained Focus]]></nextType>
+    <next><![CDATA[ShellCommand]]></next>
+  </Command>
+  <Command __id="27462" _type="ShellCommand" date="Thu Jul 29 20:01:20 EDT 2021" starttimestamp="1627407528257" timestamp="195752329" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="27465" _type="PauseCommand" date="Thu Jul 29 20:01:48 EDT 2021" range="20s-30s" starttimestamp="1627407528257" timestamp="195780656">
+    <prevType><![CDATA[Gained Focus]]></prevType>
+    <prev><![CDATA[ShellCommand]]></prev>
+    <pause><![CDATA[28327]]></pause>
+    <nextType><![CDATA[Lost Focus]]></nextType>
+    <next><![CDATA[ShellCommand]]></next>
+  </Command>
+  <Command __id="27464" _type="ShellCommand" date="Thu Jul 29 20:01:48 EDT 2021" starttimestamp="1627407528257" timestamp="195780656" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="27467" _type="PauseCommand" date="Thu Jul 29 20:09:22 EDT 2021" range="5m-10m" starttimestamp="1627407528257" timestamp="196233749">
+    <prevType><![CDATA[Lost Focus]]></prevType>
+    <prev><![CDATA[ShellCommand]]></prev>
+    <pause><![CDATA[453093]]></pause>
+    <nextType><![CDATA[Gained Focus]]></nextType>
+    <next><![CDATA[ShellCommand]]></next>
+  </Command>
+  <Command __id="27466" _type="ShellCommand" date="Thu Jul 29 20:09:22 EDT 2021" starttimestamp="1627407528257" timestamp="196233749" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="27468" _type="EclipseCommand" commandID="" date="Thu Jul 29 20:09:22 EDT 2021" starttimestamp="1627407528257" timestamp="196234431" />
+  <Command __id="27469" _type="EclipseCommand" commandID="" date="Thu Jul 29 20:09:22 EDT 2021" starttimestamp="1627407528257" timestamp="196234431" />
+  <Command __id="27471" _type="PauseCommand" date="Thu Jul 29 20:09:33 EDT 2021" range="10s-20s" starttimestamp="1627407528257" timestamp="196244781">
+    <prevType><![CDATA[Other]]></prevType>
+    <prev><![CDATA[EclipseCommand]]></prev>
+    <pause><![CDATA[10350]]></pause>
+    <nextType><![CDATA[Lost Focus]]></nextType>
+    <next><![CDATA[ShellCommand]]></next>
+  </Command>
+  <Command __id="27470" _type="ShellCommand" date="Thu Jul 29 20:09:33 EDT 2021" starttimestamp="1627407528257" timestamp="196244781" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="27473" _type="PauseCommand" date="Thu Jul 29 20:14:08 EDT 2021" range="2m-5m" starttimestamp="1627407528257" timestamp="196520610">
+    <prevType><![CDATA[Lost Focus]]></prevType>
+    <prev><![CDATA[ShellCommand]]></prev>
+    <pause><![CDATA[275829]]></pause>
+    <nextType><![CDATA[Gained Focus]]></nextType>
+    <next><![CDATA[ShellCommand]]></next>
+  </Command>
+  <Command __id="27472" _type="ShellCommand" date="Thu Jul 29 20:14:08 EDT 2021" starttimestamp="1627407528257" timestamp="196520610" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="27475" _type="PauseCommand" date="Thu Jul 29 20:14:32 EDT 2021" range="20s-30s" starttimestamp="1627407528257" timestamp="196543892">
+    <prevType><![CDATA[Gained Focus]]></prevType>
+    <prev><![CDATA[ShellCommand]]></prev>
+    <pause><![CDATA[23282]]></pause>
+    <nextType><![CDATA[Lost Focus]]></nextType>
+    <next><![CDATA[ShellCommand]]></next>
+  </Command>
+  <Command __id="27474" _type="ShellCommand" date="Thu Jul 29 20:14:32 EDT 2021" starttimestamp="1627407528257" timestamp="196543892" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="27477" _type="PauseCommand" date="Thu Jul 29 20:14:53 EDT 2021" range="20s-30s" starttimestamp="1627407528257" timestamp="196565579">
+    <prevType><![CDATA[Lost Focus]]></prevType>
+    <prev><![CDATA[ShellCommand]]></prev>
+    <pause><![CDATA[21687]]></pause>
+    <nextType><![CDATA[Gained Focus]]></nextType>
+    <next><![CDATA[ShellCommand]]></next>
+  </Command>
+  <Command __id="27476" _type="ShellCommand" date="Thu Jul 29 20:14:53 EDT 2021" starttimestamp="1627407528257" timestamp="196565579" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="27478" _type="EclipseCommand" commandID="org.eclipse.ui.file.properties" date="Thu Jul 29 20:14:53 EDT 2021" starttimestamp="1627407528257" timestamp="196565594" />
+  <Command __id="27480" _type="PauseCommand" date="Thu Jul 29 20:14:57 EDT 2021" range="2s-5s" starttimestamp="1627407528257" timestamp="196569482">
+    <prevType><![CDATA[Other]]></prevType>
+    <prev><![CDATA[EclipseCommand]]></prev>
+    <pause><![CDATA[3888]]></pause>
+    <nextType><![CDATA[Lost Focus]]></nextType>
+    <next><![CDATA[ShellCommand]]></next>
+  </Command>
+  <Command __id="27479" _type="ShellCommand" date="Thu Jul 29 20:14:57 EDT 2021" starttimestamp="1627407528257" timestamp="196569482" type="ECLIPSE_MINIMIZED" />
+  <Command __id="27481" _type="ShellCommand" date="Thu Jul 29 20:14:57 EDT 2021" starttimestamp="1627407528257" timestamp="196569500" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="27483" _type="PauseCommand" date="Thu Jul 29 20:19:03 EDT 2021" range="2m-5m" starttimestamp="1627407528257" timestamp="196814792">
+    <prevType><![CDATA[Lost Focus]]></prevType>
+    <prev><![CDATA[ShellCommand]]></prev>
+    <pause><![CDATA[245292]]></pause>
+    <nextType><![CDATA[Other]]></nextType>
+    <next><![CDATA[ShellCommand]]></next>
+  </Command>
+  <Command __id="27482" _type="ShellCommand" date="Thu Jul 29 20:19:03 EDT 2021" starttimestamp="1627407528257" timestamp="196814792" type="ECLIPSE_MAXIMIZED" />
+  <Command __id="27484" _type="ShellCommand" date="Thu Jul 29 20:19:03 EDT 2021" starttimestamp="1627407528257" timestamp="196814853" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="27486" _type="PauseCommand" date="Thu Jul 29 20:19:12 EDT 2021" range="5s-10s" starttimestamp="1627407528257" timestamp="196823862">
+    <prevType><![CDATA[Gained Focus]]></prevType>
+    <prev><![CDATA[ShellCommand]]></prev>
+    <pause><![CDATA[9009]]></pause>
+    <nextType><![CDATA[Other]]></nextType>
+    <next><![CDATA[EclipseCommand]]></next>
+  </Command>
+  <Command __id="27485" _type="EclipseCommand" commandID="org.eclipse.ui.file.refresh" date="Thu Jul 29 20:19:12 EDT 2021" starttimestamp="1627407528257" timestamp="196823862" />
+  <Command __id="27488" _type="PauseCommand" date="Thu Jul 29 20:19:33 EDT 2021" range="20s-30s" starttimestamp="1627407528257" timestamp="196845211">
+    <prevType><![CDATA[Other]]></prevType>
+    <prev><![CDATA[EclipseCommand]]></prev>
+    <pause><![CDATA[21349]]></pause>
+    <nextType><![CDATA[Lost Focus]]></nextType>
+    <next><![CDATA[ShellCommand]]></next>
+  </Command>
+  <Command __id="27487" _type="ShellCommand" date="Thu Jul 29 20:19:33 EDT 2021" starttimestamp="1627407528257" timestamp="196845211" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="27490" _type="PauseCommand" date="Thu Jul 29 20:21:50 EDT 2021" range="2m-5m" starttimestamp="1627407528257" timestamp="196982620">
+    <prevType><![CDATA[Lost Focus]]></prevType>
+    <prev><![CDATA[ShellCommand]]></prev>
+    <pause><![CDATA[137409]]></pause>
+    <nextType><![CDATA[Gained Focus]]></nextType>
+    <next><![CDATA[ShellCommand]]></next>
+  </Command>
+  <Command __id="27489" _type="ShellCommand" date="Thu Jul 29 20:21:50 EDT 2021" starttimestamp="1627407528257" timestamp="196982620" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="27492" _type="PauseCommand" date="Thu Jul 29 20:22:43 EDT 2021" range="30s-1m" starttimestamp="1627407528257" timestamp="197035193">
+    <prevType><![CDATA[Gained Focus]]></prevType>
+    <prev><![CDATA[ShellCommand]]></prev>
+    <pause><![CDATA[52573]]></pause>
+    <nextType><![CDATA[Lost Focus]]></nextType>
+    <next><![CDATA[ShellCommand]]></next>
+  </Command>
+  <Command __id="27491" _type="ShellCommand" date="Thu Jul 29 20:22:43 EDT 2021" starttimestamp="1627407528257" timestamp="197035193" type="ECLIPSE_LOST_FOCUS" />
+</Events>

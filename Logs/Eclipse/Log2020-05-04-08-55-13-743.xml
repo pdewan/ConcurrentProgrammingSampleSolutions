@@ -1,0 +1,272 @@
+<Events startTimestamp="1588596913743" logVersion="1.0.0.202003301127">
+  <DocumentChange __id="5470" _type="Insert" date="Thu May 07 13:02:12 EDT 2020" docASTNodeCount="123" docActiveCodeLength="936" docExpressionCount="70" docLength="2626" length="2" offset="1533" starttimestamp="1588596913743" timestamp="274019039">
+    <text><![CDATA[//]]></text>
+  </DocumentChange>
+  <DocumentChange __id="5473" _type="Insert" date="Thu May 07 13:02:15 EDT 2020" docASTNodeCount="122" docActiveCodeLength="918" docExpressionCount="69" docLength="2628" length="2" offset="1579" starttimestamp="1588596913743" timestamp="274021798">
+    <text><![CDATA[//]]></text>
+  </DocumentChange>
+  <DocumentChange __id="5476" _type="Insert" date="Thu May 07 13:02:17 EDT 2020" docASTNodeCount="121" docActiveCodeLength="900" docExpressionCount="68" docLength="2630" length="2" offset="1600" starttimestamp="1588596913743" timestamp="274024098">
+    <text><![CDATA[//]]></text>
+  </DocumentChange>
+  <DocumentChange __id="5479" _type="Insert" date="Thu May 07 13:02:20 EDT 2020" docASTNodeCount="120" docActiveCodeLength="882" docExpressionCount="67" docLength="2632" length="2" offset="1621" starttimestamp="1588596913743" timestamp="274026354">
+    <text><![CDATA[//]]></text>
+  </DocumentChange>
+  <DocumentChange __id="5484" _type="Insert" date="Thu May 07 13:02:27 EDT 2020" docASTNodeCount="120" docActiveCodeLength="886" docExpressionCount="67" docLength="2636" length="4" offset="1532" starttimestamp="1588596913743" timestamp="274033264">
+    <text><![CDATA[
+			]]></text>
+  </DocumentChange>
+  <DocumentChange __id="5486" _type="Replace" date="Thu May 07 13:02:27 EDT 2020" docASTNodeCount="121" docActiveCodeLength="900" docExpressionCount="68" docLength="2650" endLine="27" insertionLength="17" int_docASTNodeCount="120" int_docActiveCodeLength="883" int_docExpressionCount="67" int_docLength="2633" length="3" offset="1533" startLine="27" starttimestamp="1588596913743" timestamp="274033899">
+    <deletedText><![CDATA[			]]></deletedText>
+    <insertedText><![CDATA[			"Assignment 1"]]></insertedText>
+  </DocumentChange>
+  <DocumentChange __id="5489" _type="Delete" date="Thu May 07 13:02:30 EDT 2020" docASTNodeCount="121" docActiveCodeLength="899" docExpressionCount="68" docLength="2649" endLine="27" length="1" offset="1548" startLine="27" starttimestamp="1588596913743" timestamp="274036639">
+    <text><![CDATA[1]]></text>
+  </DocumentChange>
+  <DocumentChange __id="5491" _type="Insert" date="Thu May 07 13:02:31 EDT 2020" docASTNodeCount="121" docActiveCodeLength="900" docExpressionCount="68" docLength="2650" length="1" offset="1548" starttimestamp="1588596913743" timestamp="274037345">
+    <text><![CDATA[0]]></text>
+  </DocumentChange>
+  <Command __id="5602" _type="ShellCommand" date="Sun May 10 16:24:21 EDT 2020" starttimestamp="1588596913743" timestamp="545347905" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="5603" _type="EclipseCommand" commandID="org.eclipse.search.ui.openFileSearchPage" date="Sun May 10 16:24:21 EDT 2020" starttimestamp="1588596913743" timestamp="545347939" />
+  <Command __id="5874" _type="MoveCaretCommand" caretOffset="0" date="Mon May 11 12:04:29 EDT 2020" docOffset="0" starttimestamp="1588596913743" timestamp="616155496" />
+  <Command __id="5875" _type="ShellCommand" date="Mon May 11 12:04:43 EDT 2020" starttimestamp="1588596913743" timestamp="616169275" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="5876" _type="ShellCommand" date="Mon May 11 12:04:43 EDT 2020" starttimestamp="1588596913743" timestamp="616169654" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="5877" _type="ShellCommand" date="Mon May 11 12:04:43 EDT 2020" starttimestamp="1588596913743" timestamp="616169738" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="5887" _type="DiffBasedFileOpenCommand" date="Mon May 11 12:05:35 EDT 2020" docASTNodeCount="1" docActiveCodeLength="451" docExpressionCount="0" docLength="451" projectName="OpenMPTraining" starttimestamp="1588596913743" timestamp="616222040">
+    <filePath><![CDATA[D:\dewan_backup\C\OpenMPTraining\OpenMPTrainingC++\src\sum_parallel.cpp]]></filePath>
+    <diff><![CDATA[[Diff(EQUAL,"#include <iostream>¶#include <omp.h>¶¶using namespace std;¶¶void printSumWithTimes(int sum, int start, int end);¶void printNumThreads();¶void recordThreadIndex(int index);¶void sum_parallel(double* array, int size) {¶	cout << "sum_parallel\n";¶¶	double start = omp_get_wtime();¶¶	double sum = 0;¶¶	for (int i = 0; i < size; i++) {¶		sum += array[i];¶		recordThreadIndex(i);¶	}¶¶	double end = omp_get_wtime();¶¶	printSumWithTimes(sum, start, end);¶¶¶}¶")]]]></diff>
+  </Command>
+  <Command __id="5888" _type="MoveCaretCommand" caretOffset="0" date="Mon May 11 12:05:35 EDT 2020" docOffset="0" starttimestamp="1588596913743" timestamp="616222211" />
+  <Command __id="5890" _type="MoveCaretCommand" caretOffset="0" date="Mon May 11 12:05:51 EDT 2020" docOffset="0" starttimestamp="1588596913743" timestamp="616237564" />
+  <Command __id="5891" _type="SelectTextCommand" caretOffset="647" date="Mon May 11 12:07:58 EDT 2020" end="674" start="647" starttimestamp="1588596913743" timestamp="616364321" />
+  <Command __id="5892" _type="SelectTextCommand" caretOffset="600" date="Mon May 11 12:07:58 EDT 2020" end="647" start="600" starttimestamp="1588596913743" timestamp="616364563" />
+  <Command __id="5893" _type="ShellCommand" date="Mon May 11 12:08:34 EDT 2020" starttimestamp="1588596913743" timestamp="616400314" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="5889" _type="DiffBasedFileOpenCommand" date="Mon May 11 12:05:51 EDT 2020" docASTNodeCount="1" docActiveCodeLength="795" docExpressionCount="0" docLength="795" projectName="MyOpenMPTraining" starttimestamp="1588596913743" timestamp="616237401">
+    <filePath><![CDATA[D:\dewan_backup\C\MyOpenMPTraining\src\my_sum_parallel.cpp]]></filePath>
+    <diff><![CDATA[null]]></diff>
+    <snapshot><![CDATA[#include <iostream>
+#include <omp.h>
+
+using namespace std;
+
+void printSumWithTimes(int sum, int start, int end);
+void printNumThreads();
+void recordThreadIndex(int index);
+void sum_parallel(double* array, int size) {
+	cout << "sum_parallel\n";
+
+	double start = omp_get_wtime();
+
+	double sum = 0;
+
+
+    #pragma omp critical
+	{
+	double sum = 0;
+	}
+    #pragma omp parallel
+	{
+		double local_sum = 0;
+
+		int rank = omp_get_thread_num();
+		int threads = omp_get_num_threads();
+
+		int start_index = (size/threads)*rank;
+		int end_index = (size/threads)*(rank+1);
+
+		if(rank==threads-1)
+			end_index=size;
+
+		for(int i = start_index; i < end_index; i++)
+			local_sum += array[i];
+
+		#pragma omp critical
+		sum += local_sum;
+	}
+
+	double end = omp_get_wtime();
+
+	printSumWithTimes(sum, start, end);
+
+
+}
+]]></snapshot>
+  </Command>
+  <Command __id="5894" _type="ShellCommand" date="Mon May 11 12:11:14 EDT 2020" starttimestamp="1588596913743" timestamp="616560465" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="5895" _type="DiffBasedFileOpenCommand" date="Mon May 11 12:11:18 EDT 2020" docASTNodeCount="1" docActiveCodeLength="659" docExpressionCount="0" docLength="747" projectName="MyOpenMPTraining" starttimestamp="1588596913743" timestamp="616565167">
+    <filePath><![CDATA[D:\dewan_backup\C\MyOpenMPTraining\src\my_sum_parallel_for_local_var.cpp]]></filePath>
+    <diff><![CDATA[null]]></diff>
+    <snapshot><![CDATA[#include <iostream>
+#include <omp.h>
+
+using namespace std;
+
+void printSumWithTimes (int sum, int start, int end);
+void printNumThreads();
+void recordThreadIndex(int index);
+void sum_parallel_for_local_var(double* array, int size)
+{
+	cout << "sum_parallel_for_local_var\n";
+
+	double start = omp_get_wtime();
+
+	double sum = 0;
+
+	int a, b;
+//
+//	for (int i = 0; i < size; i++) {
+//			sum += array[i];
+//			recordThreadIndex(i);
+//	}
+
+    #pragma omp parallel shared (sum, start) private (a, b)
+	{
+		double local_sum = 0;
+
+		#pragma omp for
+		for(int i = 0; i < size; i++) {
+			local_sum += array[i];
+			recordThreadIndex(i);
+		}
+
+		#pragma omp critical
+		sum += local_sum;
+	}
+
+	double end = omp_get_wtime();
+
+	printSumWithTimes(sum, start, end);
+	
+}
+]]></snapshot>
+  </Command>
+  <Command __id="5896" _type="MoveCaretCommand" caretOffset="0" date="Mon May 11 12:11:19 EDT 2020" docOffset="0" starttimestamp="1588596913743" timestamp="616565305" />
+  <Command __id="5898" _type="SelectTextCommand" caretOffset="600" date="Mon May 11 12:13:14 EDT 2020" end="647" start="600" starttimestamp="1588596913743" timestamp="616680398" />
+  <Command __id="5900" _type="DiffBasedFileOpenCommand" date="Mon May 11 12:13:38 EDT 2020" docASTNodeCount="1" docActiveCodeLength="451" docExpressionCount="0" docLength="451" projectName="OpenMPTraining" starttimestamp="1588596913743" timestamp="616704521">
+    <filePath><![CDATA[D:\dewan_backup\C\OpenMPTraining\OpenMPTrainingC++\src\sum_parallel.cpp]]></filePath>
+    <diff><![CDATA[[Diff(EQUAL,"#include <iostream>¶#include <omp.h>¶¶using namespace std;¶¶void printSumWithTimes(int sum, int start, int end);¶void printNumThreads();¶void recordThreadIndex(int index);¶void sum_parallel(double* array, int size) {¶	cout << "sum_parallel\n";¶¶	double start = omp_get_wtime();¶¶	double sum = 0;¶¶	for (int i = 0; i < size; i++) {¶		sum += array[i];¶		recordThreadIndex(i);¶	}¶¶	double end = omp_get_wtime();¶¶	printSumWithTimes(sum, start, end);¶¶¶}¶")]]]></diff>
+  </Command>
+  <Command __id="5901" _type="MoveCaretCommand" caretOffset="0" date="Mon May 11 12:13:38 EDT 2020" docOffset="0" starttimestamp="1588596913743" timestamp="616704676" />
+  <Command __id="5902" _type="DiffBasedFileOpenCommand" date="Mon May 11 12:13:46 EDT 2020" docASTNodeCount="1" docActiveCodeLength="795" docExpressionCount="0" docLength="795" projectName="MyOpenMPTraining" starttimestamp="1588596913743" timestamp="616712545">
+    <filePath><![CDATA[D:\dewan_backup\C\MyOpenMPTraining\src\my_sum_parallel.cpp]]></filePath>
+    <diff><![CDATA[[Diff(EQUAL,"#include <iostream>¶#include <omp.h>¶¶using namespace std;¶¶void printSumWithTimes(int sum, int start, int end);¶void printNumThreads();¶void recordThreadIndex(int index);¶void sum_parallel(double* array, int size) {¶	cout << "sum_parallel\n";¶¶	double start = omp_get_wtime();¶¶	double sum = 0;¶¶¶    #pragma omp critical¶	{¶	double sum = 0;¶	}¶    #pragma omp parallel¶	{¶		double local_sum = 0;¶¶		int rank = omp_get_thread_num();¶		int threads = omp_get_num_threads();¶¶		int start_index = (size/threads)*rank;¶		int end_index = (size/threads)*(rank+1);¶¶		if(rank==threads-1)¶			end_index=size;¶¶		for(int i = start_index; i < end_index; i++)¶			local_sum += array[i];¶¶		#pragma omp critical¶		sum += local_sum;¶	}¶¶	double end = omp_get_wtime();¶¶	printSumWithTimes(sum, start, end);¶¶¶}¶")]]]></diff>
+  </Command>
+  <Command __id="5903" _type="MoveCaretCommand" caretOffset="647" date="Mon May 11 12:13:46 EDT 2020" docOffset="647" starttimestamp="1588596913743" timestamp="616712673" />
+  <DocumentChange __id="5904" _type="Insert" date="Mon May 11 12:13:48 EDT 2020" docASTNodeCount="1" docActiveCodeLength="796" docExpressionCount="0" docLength="796" length="1" offset="647" starttimestamp="1588596913743" timestamp="616714951">
+    <text><![CDATA[ ]]></text>
+  </DocumentChange>
+  <Command __id="5905" _type="InsertStringCommand" date="Mon May 11 12:13:48 EDT 2020" starttimestamp="1588596913743" timestamp="616714957" timestamp2="616714957">
+    <data><![CDATA[ ]]></data>
+  </Command>
+  <Command __id="5907" _type="InsertStringCommand" date="Mon May 11 12:13:49 EDT 2020" starttimestamp="1588596913743" timestamp="616715795" timestamp2="616715795">
+    <data><![CDATA[{]]></data>
+  </Command>
+  <Command __id="5908" _type="MoveCaretCommand" caretOffset="675" date="Mon May 11 12:13:51 EDT 2020" docOffset="675" starttimestamp="1588596913743" timestamp="616717301" />
+  <Command __id="5910" _type="InsertStringCommand" date="Mon May 11 12:13:51 EDT 2020" starttimestamp="1588596913743" timestamp="616717754" timestamp2="616717754">
+    <data><![CDATA[]]></data>
+  </Command>
+  <Command __id="5912" _type="InsertStringCommand" date="Mon May 11 12:13:52 EDT 2020" starttimestamp="1588596913743" timestamp="616718683" timestamp2="616718683">
+    <data><![CDATA[}]]></data>
+  </Command>
+  <DocumentChange __id="5906" _type="Insert" date="Mon May 11 12:13:49 EDT 2020" docASTNodeCount="1" docActiveCodeLength="797" docExpressionCount="0" docLength="797" length="1" offset="648" starttimestamp="1588596913743" timestamp="616715780">
+    <text><![CDATA[{]]></text>
+  </DocumentChange>
+  <DocumentChange __id="5909" _type="Insert" date="Mon May 11 12:13:51 EDT 2020" docASTNodeCount="1" docActiveCodeLength="801" docExpressionCount="0" docLength="801" length="4" offset="675" starttimestamp="1588596913743" timestamp="616717746">
+    <text><![CDATA[
+			]]></text>
+  </DocumentChange>
+  <DocumentChange __id="5911" _type="Replace" date="Mon May 11 12:13:52 EDT 2020" docASTNodeCount="1" docActiveCodeLength="801" docExpressionCount="0" docLength="801" endLine="35" insertionLength="3" int_docASTNodeCount="1" int_docActiveCodeLength="798" int_docExpressionCount="0" int_docLength="798" length="3" offset="676" startLine="35" starttimestamp="1588596913743" timestamp="616718671">
+    <deletedText><![CDATA[			]]></deletedText>
+    <insertedText><![CDATA[		}]]></insertedText>
+  </DocumentChange>
+  <DocumentChange __id="5914" _type="Insert" date="Mon May 11 12:14:01 EDT 2020" docASTNodeCount="1" docActiveCodeLength="805" docExpressionCount="0" docLength="805" length="4" offset="675" starttimestamp="1588596913743" timestamp="616727337">
+    <text><![CDATA[
+			]]></text>
+  </DocumentChange>
+  <DocumentChange __id="5916" _type="Insert" date="Mon May 11 12:14:01 EDT 2020" docASTNodeCount="1" docActiveCodeLength="806" docExpressionCount="0" docLength="806" length="1" offset="679" starttimestamp="1588596913743" timestamp="616727824">
+    <text><![CDATA[r]]></text>
+  </DocumentChange>
+  <DocumentChange __id="5918" _type="Insert" date="Mon May 11 12:14:01 EDT 2020" docASTNodeCount="1" docActiveCodeLength="807" docExpressionCount="0" docLength="807" length="1" offset="680" starttimestamp="1588596913743" timestamp="616728023">
+    <text><![CDATA[e]]></text>
+  </DocumentChange>
+  <DocumentChange __id="5920" _type="Insert" date="Mon May 11 12:14:01 EDT 2020" docASTNodeCount="1" docActiveCodeLength="808" docExpressionCount="0" docLength="808" length="1" offset="681" starttimestamp="1588596913743" timestamp="616728255">
+    <text><![CDATA[c]]></text>
+  </DocumentChange>
+  <DocumentChange __id="5922" _type="Insert" date="Mon May 11 12:14:02 EDT 2020" docASTNodeCount="1" docActiveCodeLength="809" docExpressionCount="0" docLength="809" length="1" offset="682" starttimestamp="1588596913743" timestamp="616728406">
+    <text><![CDATA[o]]></text>
+  </DocumentChange>
+  <DocumentChange __id="5924" _type="Insert" date="Mon May 11 12:14:02 EDT 2020" docASTNodeCount="1" docActiveCodeLength="810" docExpressionCount="0" docLength="810" length="1" offset="683" starttimestamp="1588596913743" timestamp="616728559">
+    <text><![CDATA[r]]></text>
+  </DocumentChange>
+  <DocumentChange __id="5926" _type="Insert" date="Mon May 11 12:14:02 EDT 2020" docASTNodeCount="1" docActiveCodeLength="811" docExpressionCount="0" docLength="811" length="1" offset="684" starttimestamp="1588596913743" timestamp="616728783">
+    <text><![CDATA[d]]></text>
+  </DocumentChange>
+  <DocumentChange __id="5928" _type="Insert" date="Mon May 11 12:14:03 EDT 2020" docASTNodeCount="1" docActiveCodeLength="812" docExpressionCount="0" docLength="812" length="1" offset="685" starttimestamp="1588596913743" timestamp="616729466">
+    <text><![CDATA[T]]></text>
+  </DocumentChange>
+  <DocumentChange __id="5930" _type="Insert" date="Mon May 11 12:14:03 EDT 2020" docASTNodeCount="1" docActiveCodeLength="813" docExpressionCount="0" docLength="813" length="1" offset="686" starttimestamp="1588596913743" timestamp="616729657">
+    <text><![CDATA[h]]></text>
+  </DocumentChange>
+  <Command __id="5913" _type="MoveCaretCommand" caretOffset="675" date="Mon May 11 12:14:00 EDT 2020" docOffset="675" starttimestamp="1588596913743" timestamp="616726830" />
+  <Command __id="5915" _type="InsertStringCommand" date="Mon May 11 12:14:01 EDT 2020" starttimestamp="1588596913743" timestamp="616727348" timestamp2="616727348">
+    <data><![CDATA[]]></data>
+  </Command>
+  <Command __id="5917" _type="InsertStringCommand" date="Mon May 11 12:14:01 EDT 2020" starttimestamp="1588596913743" timestamp="616727827" timestamp2="616727827">
+    <data><![CDATA[r]]></data>
+  </Command>
+  <Command __id="5919" _type="InsertStringCommand" date="Mon May 11 12:14:01 EDT 2020" starttimestamp="1588596913743" timestamp="616728029" timestamp2="616728029">
+    <data><![CDATA[e]]></data>
+  </Command>
+  <Command __id="5921" _type="InsertStringCommand" date="Mon May 11 12:14:02 EDT 2020" starttimestamp="1588596913743" timestamp="616728268" timestamp2="616728268">
+    <data><![CDATA[c]]></data>
+  </Command>
+  <Command __id="5923" _type="InsertStringCommand" date="Mon May 11 12:14:02 EDT 2020" starttimestamp="1588596913743" timestamp="616728416" timestamp2="616728416">
+    <data><![CDATA[o]]></data>
+  </Command>
+  <Command __id="5925" _type="InsertStringCommand" date="Mon May 11 12:14:02 EDT 2020" starttimestamp="1588596913743" timestamp="616728568" timestamp2="616728568">
+    <data><![CDATA[r]]></data>
+  </Command>
+  <Command __id="5927" _type="InsertStringCommand" date="Mon May 11 12:14:02 EDT 2020" starttimestamp="1588596913743" timestamp="616728800" timestamp2="616728800">
+    <data><![CDATA[d]]></data>
+  </Command>
+  <Command __id="5929" _type="InsertStringCommand" date="Mon May 11 12:14:03 EDT 2020" starttimestamp="1588596913743" timestamp="616729472" timestamp2="616729472">
+    <data><![CDATA[T]]></data>
+  </Command>
+  <Command __id="5931" _type="InsertStringCommand" date="Mon May 11 12:14:03 EDT 2020" starttimestamp="1588596913743" timestamp="616729664" timestamp2="616729664">
+    <data><![CDATA[h]]></data>
+  </Command>
+  <Command __id="5933" _type="UndoCommand" date="Mon May 11 12:14:05 EDT 2020" starttimestamp="1588596913743" timestamp="616731330" />
+  <Command __id="5969" _type="DiffBasedFileOpenCommand" date="Mon May 11 12:14:22 EDT 2020" docASTNodeCount="1" docActiveCodeLength="1639" docExpressionCount="0" docLength="1804" projectName="OpenMPTraining" starttimestamp="1588596913743" timestamp="616748521">
+    <filePath><![CDATA[D:\dewan_backup\C\OpenMPTraining\OpenMPTrainingC++\src\sum_main.cpp]]></filePath>
+    <diff><![CDATA[[Diff(EQUAL,"#include <iostream>¶#include <omp.h>¶¶using namespace std;¶//need to declare headers of external functions called¶void sum_sequential(double* array, int size);¶void sum_parallel_for_reduction(double* array, int size);¶void sum_parallel(double* array, int size);¶void sum_parallel_for_local_var(double* array, int size);¶¶const int SIZE = 1000;¶void initArray (double* array, int size ) {¶	for(int i = 0; i < size; i++)¶			array[i]=i;¶}¶/**¶ * Called by each of the summing alternatives¶ */¶void printSumWithTimes (int sum, int start, int end) {¶	cout << "Sum: " << sum << endl;¶	cout << "Took: " << end - start << endl;¶}¶void printNumThreads() {¶	cout << "threads:" << omp_get_num_threads() << endl;¶}¶/**¶ * an array to learn how much concurrency occurred¶ */¶int MAX_THREADS = 100;¶double* threadsLastIndex = new double[MAX_THREADS];¶int numThreads;¶¶¶void recordThreadIndex(int index) {¶	int thread =  omp_get_thread_num();¶	if (thread >= MAX_THREADS) {¶		return;¶	}¶	threadsLastIndex[thread] = index;¶	numThreads = omp_get_num_threads();¶}¶void initThreadRecording() {¶	numThreads = 0;¶	for (int i = 0; i < MAX_THREADS; i++) {¶		threadsLastIndex[i] = -1;¶	}¶}¶¶void printThreadLastIndex() {¶	for (int i = 0; i < numThreads; i++) {¶		cout << "thread:" << i << " lastIndex:" << threadsLastIndex[i] << endl;¶	}¶	cout << "_____________________________" << endl;¶}¶¶¶int main()¶{¶	double* array = new double[SIZE];¶	initArray(array, SIZE);¶	initThreadRecording();¶	sum_sequential(array, SIZE);¶	printThreadLastIndex();¶	initThreadRecording();¶	sum_parallel_for_reduction(array, SIZE);¶	printThreadLastIndex();¶	initThreadRecording();¶	sum_parallel_for_local_var(array, SIZE);¶	printThreadLastIndex();¶	initThreadRecording();¶	sum_parallel(array, SIZE);¶	printThreadLastIndex();¶	initThreadRecording();¶}¶")]]]></diff>
+  </Command>
+  <Command __id="5970" _type="MoveCaretCommand" caretOffset="1380" date="Mon May 11 12:14:22 EDT 2020" docOffset="1380" starttimestamp="1588596913743" timestamp="616748675" />
+  <Command __id="5972" _type="MoveCaretCommand" caretOffset="693" date="Mon May 11 12:14:24 EDT 2020" docOffset="693" starttimestamp="1588596913743" timestamp="616751251" />
+  <Command __id="5973" _type="SelectTextCommand" caretOffset="679" date="Mon May 11 12:14:28 EDT 2020" end="693" start="679" starttimestamp="1588596913743" timestamp="616754407" />
+  <Command __id="5975" _type="PasteCommand" date="Mon May 11 12:14:28 EDT 2020" starttimestamp="1588596913743" timestamp="616754907" />
+  <Command __id="10247" _type="DiffBasedFileOpenCommand" date="Mon May 11 21:22:00 EDT 2020" docASTNodeCount="1" docActiveCodeLength="1648" docExpressionCount="0" docLength="2835" projectName="OpenMPTraining" starttimestamp="1588596913743" timestamp="649607128">
+    <filePath><![CDATA[D:\dewan_backup\C\OpenMPTraining\OpenMPTrainingC++\src\sum_main.cpp]]></filePath>
+    <diff><![CDATA[[Diff(EQUAL,"/*¶ * The purpose of this exercise is to teach you four different ways of using¶ * OpenMP to parallelize a sequential C++ program for summing the¶ * first N natural numbers.¶ *¶ * The sequential solution is in the file:¶ *¶ * sum_sequential.cpp.¶ *¶ * The solutions you will create will in the files with the term parallel:¶ *¶ * sum_parallel_for_local_var.cpp¶ * sum_parallel_for_reduction.cpp¶ * sum_parallel.cpp¶ * sum_sequential.cpp¶ *¶ * Each of these files is a copy of the sequential solution.¶ * Your task is to modify them to create the four OpenMP solutions.¶ *¶ * Each file defines a procedure or method that can be called from a main¶ * program. This file provides the main function, which calls the sequential¶ * solution and all four parallel solutions.¶ *¶ * The unmodified parallel solutions will have the same output as the sequential¶ * solution. The modified solution will compute the same result but print different¶ * output. This is because the sequential and parallel solutions print not only¶ *¶ */¶¶#include <iostream>¶#include <omp.h>¶¶using namespace std;¶//need to declare headers of external functions called¶void sum_sequential(double* array, int size);¶void sum_parallel_for_reduction(double* array, int size);¶void sum_parallel(double* array, int size);¶void sum_parallel_for_local_var(double* array, int size);¶¶const int SIZE = 1000;¶void initArray (double* array, int size ) {¶	for(int i = 0; i < size; i++)¶			array[i]=i;¶}¶/**¶ * Called by each of the summing alternatives¶ */¶void printSumWithTimes (int sum, int start, int end) {¶	cout << "Sum: " << sum << endl;¶	cout << "Took: " << end - start << endl;¶}¶void printNumThreads() {¶	cout << "threads:" << omp_get_num_threads() << endl;¶}¶/**¶ * an array to learn how much concurrency occurred¶ */¶int MAX_THREADS = 100;¶double* threadsLastIndex = new double[MAX_THREADS];¶int numThreads;¶¶¶void recordThreadIndex(int index) {¶	int thread =  omp_get_thread_num();¶	if (thread >= MAX_THREADS) {¶		return;¶	}¶	threadsLastIndex[thread] = index;¶	numThreads = omp_get_num_threads();¶}¶void initThreadRecording() {¶	numThreads = 0;¶	for (int i = 0; i < MAX_THREADS; i++) {¶		threadsLastIndex[i] = -1;¶	}¶}¶¶void printThreadLastIndex() {¶	for (int i = 0; i < numThreads; i++) {¶		cout << "thread:" << i << " lastIndex:" << threadsLastIndex[i] << endl;¶	}¶	cout << "_____________________________" << endl;¶}¶¶¶void sum_driver()¶{¶	double* array = new double[SIZE];¶	initArray(array, SIZE);¶	initThreadRecording();¶	sum_sequential(array, SIZE);¶	printThreadLastIndex();¶	initThreadRecording();¶	sum_parallel_for_reduction(array, SIZE);¶	printThreadLastIndex();¶	initThreadRecording();¶	sum_parallel_for_local_var(array, SIZE);¶	printThreadLastIndex();¶	initThreadRecording();¶	sum_parallel(array, SIZE);¶	printThreadLastIndex();¶	initThreadRecording();¶}¶")]]]></diff>
+  </Command>
+  <Command __id="10250" _type="MoveCaretCommand" caretOffset="1044" date="Mon May 11 21:22:13 EDT 2020" docOffset="1044" starttimestamp="1588596913743" timestamp="649619934" />
+  <Command __id="10251" _type="DiffBasedFileOpenCommand" date="Mon May 11 21:22:25 EDT 2020" docASTNodeCount="1" docActiveCodeLength="1642" docExpressionCount="0" docLength="1924" projectName="MyOpenMPTraining" starttimestamp="1588596913743" timestamp="649631444">
+    <filePath><![CDATA[D:\dewan_backup\C\MyOpenMPTraining\src\my_sum_main.cpp]]></filePath>
+    <diff><![CDATA[[Diff(EQUAL,"#include <iostream>¶#include <omp.h>¶¶using namespace std;¶//need to declare headers of external functions called¶void sum_sequential(double* array, int size);¶void sum_parallel_for_reduction(double* array, int size);¶void sum_parallel(double* array, int size);¶void sum_parallel_for_local_var(double* array, int size);¶¶// if this main is used to call functions to do other computations¶// then those headers should also be declared here¶¶const int SIZE = 1000;¶void initArray (double* array, int size ) {¶	for(int i = 0; i < size; i++)¶			array[i]=i;¶}¶/**¶ * Called by each of the summing alternatives¶ */¶void printSumWithTimes (int sum, int start, int end) {¶	cout << "Sum: " << sum << endl;¶	cout << "Took: " << end - start << endl;¶}¶void printNumThreads() {¶	cout << "threads:" << omp_get_num_threads() << endl;¶}¶/**¶ * an array to learn how much concurrency occcurred¶ */¶int MAX_THREADS = 100;¶double* threadsLastIndex = new double[MAX_THREADS];¶int numThreads;¶¶¶void recordThreadIndex(int index) {¶	int thread =  omp_get_thread_num();¶	if (thread >= MAX_THREADS) {¶		return;¶	}¶	threadsLastIndex[thread] = index;¶	numThreads = omp_get_num_threads();¶}¶void initThreadRecording() {¶	numThreads = 0;¶	for (int i = 0; i < MAX_THREADS; i++) {¶		threadsLastIndex[i] = -1;¶	}¶}¶¶void printThreadLastIndex() {¶	for (int i = 0; i < numThreads; i++) {¶		cout << "thread:" << i << " lastIndex:" << threadsLastIndex[i] << endl;¶	}¶	cout << "_____________________________" << endl;¶}¶¶¶int main()¶{¶	double* array = new double[SIZE];¶	initArray(array, SIZE);¶	initThreadRecording();¶	sum_sequential(array, SIZE);¶	printThreadLastIndex();¶	initThreadRecording();¶	sum_parallel_for_reduction(array, SIZE);¶	printThreadLastIndex();¶	initThreadRecording();¶	sum_parallel_for_local_var(array, SIZE);¶	printThreadLastIndex();¶	initThreadRecording();¶	sum_parallel(array, SIZE);¶	printThreadLastIndex();¶	initThreadRecording();¶}¶")]]]></diff>
+  </Command>
+  <Command __id="10252" _type="MoveCaretCommand" caretOffset="0" date="Mon May 11 21:22:25 EDT 2020" docOffset="0" starttimestamp="1588596913743" timestamp="649631591" />
+  <Command __id="10253" _type="DiffBasedFileOpenCommand" date="Mon May 11 21:22:32 EDT 2020" docASTNodeCount="1" docActiveCodeLength="659" docExpressionCount="0" docLength="747" projectName="MyOpenMPTraining" starttimestamp="1588596913743" timestamp="649639136">
+    <filePath><![CDATA[D:\dewan_backup\C\MyOpenMPTraining\src\my_sum_parallel_for_local_var.cpp]]></filePath>
+    <diff><![CDATA[[Diff(EQUAL,"#include <iostream>¶#include <omp.h>¶¶using namespace std;¶¶void printSumWithTimes (int sum, int start, int end);¶void printNumThreads();¶void recordThreadIndex(int index);¶void sum_parallel_for_local_var(double* array, int size)¶{¶	cout << "sum_parallel_for_local_var\n";¶¶	double start = omp_get_wtime();¶¶	double sum = 0;¶¶	int a, b;¶//¶//	for (int i = 0; i < size; i++) {¶//			sum += array[i];¶//			recordThreadIndex(i);¶//	}¶¶    #pragma omp parallel shared (sum, start) private (a, b)¶	{¶		double local_sum = 0;¶¶		#pragma omp for¶		for(int i = 0; i < size; i++) {¶			local_sum += array[i];¶			recordThreadIndex(i);¶		}¶¶		#pragma omp critical¶		sum += local_sum;¶	}¶¶	double end = omp_get_wtime();¶¶	printSumWithTimes(sum, start, end);¶	¶}¶")]]]></diff>
+  </Command>
+  <Command __id="10254" _type="MoveCaretCommand" caretOffset="0" date="Mon May 11 21:22:33 EDT 2020" docOffset="0" starttimestamp="1588596913743" timestamp="649639301" />
+  <Command __id="10256" _type="MoveCaretCommand" caretOffset="0" date="Mon May 11 21:22:39 EDT 2020" docOffset="0" starttimestamp="1588596913743" timestamp="649646104" />
+  <Command __id="10257" _type="SelectTextCommand" caretOffset="38" date="Mon May 11 21:23:10 EDT 2020" end="58" start="38" starttimestamp="1588596913743" timestamp="649677032" />
+  <Command __id="10255" _type="DiffBasedFileOpenCommand" date="Mon May 11 21:22:39 EDT 2020" docASTNodeCount="1" docActiveCodeLength="1642" docExpressionCount="0" docLength="1924" projectName="MyOpenMPTraining" starttimestamp="1588596913743" timestamp="649645989">
+    <filePath><![CDATA[D:\dewan_backup\C\MyOpenMPTraining\src\my_sum_main.cpp]]></filePath>
+    <diff><![CDATA[[Diff(EQUAL,"#include <iostream>¶#include <omp.h>¶¶using namespace std;¶//need to declare headers of external functions called¶void sum_sequential(double* array, int size);¶void sum_parallel_for_reduction(double* array, int size);¶void sum_parallel(double* array, int size);¶void sum_parallel_for_local_var(double* array, int size);¶¶// if this main is used to call functions to do other computations¶// then those headers should also be declared here¶¶const int SIZE = 1000;¶void initArray (double* array, int size ) {¶	for(int i = 0; i < size; i++)¶			array[i]=i;¶}¶/**¶ * Called by each of the summing alternatives¶ */¶void printSumWithTimes (int sum, int start, int end) {¶	cout << "Sum: " << sum << endl;¶	cout << "Took: " << end - start << endl;¶}¶void printNumThreads() {¶	cout << "threads:" << omp_get_num_threads() << endl;¶}¶/**¶ * an array to learn how much concurrency occcurred¶ */¶int MAX_THREADS = 100;¶double* threadsLastIndex = new double[MAX_THREADS];¶int numThreads;¶¶¶void recordThreadIndex(int index) {¶	int thread =  omp_get_thread_num();¶	if (thread >= MAX_THREADS) {¶		return;¶	}¶	threadsLastIndex[thread] = index;¶	numThreads = omp_get_num_threads();¶}¶void initThreadRecording() {¶	numThreads = 0;¶	for (int i = 0; i < MAX_THREADS; i++) {¶		threadsLastIndex[i] = -1;¶	}¶}¶¶void printThreadLastIndex() {¶	for (int i = 0; i < numThreads; i++) {¶		cout << "thread:" << i << " lastIndex:" << threadsLastIndex[i] << endl;¶	}¶	cout << "_____________________________" << endl;¶}¶¶¶int main()¶{¶	double* array = new double[SIZE];¶	initArray(array, SIZE);¶	initThreadRecording();¶	sum_sequential(array, SIZE);¶	printThreadLastIndex();¶	initThreadRecording();¶	sum_parallel_for_reduction(array, SIZE);¶	printThreadLastIndex();¶	initThreadRecording();¶	sum_parallel_for_local_var(array, SIZE);¶	printThreadLastIndex();¶	initThreadRecording();¶	sum_parallel(array, SIZE);¶	printThreadLastIndex();¶	initThreadRecording();¶}¶")]]]></diff>
+  </Command>
+  <Command __id="10258" _type="MoveCaretCommand" caretOffset="20" date="Mon May 11 21:23:12 EDT 2020" docOffset="20" starttimestamp="1588596913743" timestamp="649678406" />
+  <Command __id="10260" _type="EclipseCommand" commandID="org.eclipse.cdt.ui.edit.text.c.toggle.comment" date="Mon May 11 21:23:13 EDT 2020" starttimestamp="1588596913743" timestamp="649679601" />
+  <Command __id="10261" _type="EclipseCommand" commandID="org.eclipse.ui.file.save" date="Mon May 11 21:23:14 EDT 2020" starttimestamp="1588596913743" timestamp="649680712" />
+  <Command __id="10262" _type="MoveCaretCommand" caretOffset="20" date="Mon May 11 21:23:24 EDT 2020" docOffset="20" starttimestamp="1588596913743" timestamp="649690825" />
+  <Command __id="10264" _type="EclipseCommand" commandID="org.eclipse.cdt.ui.edit.text.c.toggle.comment" date="Mon May 11 21:23:25 EDT 2020" starttimestamp="1588596913743" timestamp="649691786" />
+  <Command __id="10265" _type="ShellCommand" date="Mon May 11 21:24:13 EDT 2020" starttimestamp="1588596913743" timestamp="649739300" type="ECLIPSE_LOST_FOCUS" />

@@ -1,0 +1,424 @@
+<Events startTimestamp="1589291180380" logVersion="1.0.0.202003301127">
+  <Command __id="709" _type="DiffBasedFileOpenCommand" date="Tue May 12 10:10:57 EDT 2020" docASTNodeCount="1" docActiveCodeLength="770" docExpressionCount="0" docLength="770" projectName="OpenMPTraining" starttimestamp="1589291180380" timestamp="1477311">
+    <filePath><![CDATA[D:\dewan_backup\C\OpenMPTraining\OpenMPTrainingC++\src\sum_parallel.cpp]]></filePath>
+    <diff><![CDATA[[Diff(EQUAL,"#include <iostream>¶#include <omp.h>¶using namespace std;¶¶void initArrayAndTracing (double* anArray, int aSize);¶void printThreadLastIndices();¶void printSumWithTimes(int sum, int start, int end);¶void printNumThreads();¶void recordThreadIndex(int index);¶¶const int SIZE = 1000;¶¶void sum_parallel(double* anArray, int aSize) {¶	cout << "sum_parallel\n";¶¶	double start = omp_get_wtime();¶¶	double sum = 0;¶¶	for (int i = 0; i < aSize; i++) {¶		sum += anArray[i];¶		recordThreadIndex(i);¶	}¶¶	double end = omp_get_wtime();¶¶	printSumWithTimes(sum, start, end);¶¶}¶¶void sum_parallel_driver() {¶	double* anArray = new double[SIZE];¶	initArrayAndTracing(anArray, SIZE);¶	sum_parallel(anArray, SIZE);¶	printThreadLastIndices();¶}¶¶int main() {¶	sum_parallel_driver();¶}¶¶")]]]></diff>
+  </Command>
+  <Command __id="710" _type="MoveCaretCommand" caretOffset="356" date="Tue May 12 10:10:57 EDT 2020" docOffset="356" starttimestamp="1589291180380" timestamp="1477415" />
+  <Command __id="711" _type="DiffBasedFileOpenCommand" date="Tue May 12 10:11:14 EDT 2020" docASTNodeCount="1" docActiveCodeLength="826" docExpressionCount="0" docLength="826" projectName="MyOpenMPTraining" starttimestamp="1589291180380" timestamp="1494432">
+    <filePath><![CDATA[D:\dewan_backup\C\MyOpenMPTraining\src\my_sum_parallel.cpp]]></filePath>
+    <diff><![CDATA[null]]></diff>
+    <snapshot><![CDATA[#include <iostream>
+#include <omp.h>
+
+using namespace std;
+
+void printSumWithTimes(int sum, int start, int end);
+void printNumThreads();
+void recordThreadIndex(int index);
+void sum_parallel(double* array, int size) {
+	cout << "sum_parallel\n";
+
+	double start = omp_get_wtime();
+
+	double sum = 0;
+
+
+    #pragma omp critical
+	{
+	double sum = 0;
+	}
+    #pragma omp parallel
+	{
+		double local_sum = 0;
+
+		int rank = omp_get_thread_num();
+		int threads = omp_get_num_threads();
+
+		int start_index = (size/threads)*rank;
+		int end_index = (size/threads)*(rank+1);
+
+		if(rank==threads-1)
+			end_index=size;
+
+		for(int i = start_index; i < end_index; i++) {
+			local_sum += array[i];
+			recordThreadIndex(i);
+		}
+
+		#pragma omp critical
+		sum += local_sum;
+	}
+
+	double end = omp_get_wtime();
+
+	printSumWithTimes(sum, start, end);
+
+
+}
+]]></snapshot>
+  </Command>
+  <Command __id="712" _type="MoveCaretCommand" caretOffset="700" date="Tue May 12 10:11:14 EDT 2020" docOffset="700" starttimestamp="1589291180380" timestamp="1494583" />
+  <Command __id="1731" _type="DiffBasedFileOpenCommand" date="Tue May 12 10:54:12 EDT 2020" docASTNodeCount="1" docActiveCodeLength="732" docExpressionCount="0" docLength="774" projectName="OpenMPTraining" starttimestamp="1589291180380" timestamp="4072595">
+    <filePath><![CDATA[D:\dewan_backup\C\OpenMPTraining\OpenMPTrainingC++\src\sum_parallel.cpp]]></filePath>
+    <diff><![CDATA[[Diff(EQUAL,"#include <iostream>¶#include <omp.h>¶using namespace std;¶¶void initArrayAndTracing (double* anArray, int aSize);¶void printThreadLastIndices();¶void printSumWithTimes(int sum, int start, int end);¶void printNumThreads();¶void recordThreadIndex(int index);¶¶const int SIZE = 1000;¶¶void sum_parallel(double* anArray, int aSize) {¶	cout << "sum_parallel\n";¶¶	double start = omp_get_wtime();¶¶	double sum = 0;¶¶	for (int i = 0; i < aSize; i++) {¶		sum += anArray[i];¶		recordThreadIndex(i);¶	}¶¶	double end = omp_get_wtime();¶¶	printSumWithTimes(sum, start, end);¶¶}¶¶void sum_parallel_"), Diff(DELETE,"driver"), Diff(INSERT,"main"), Diff(EQUAL,"() {¶	double* anArray = new double[SIZE];¶	initArrayAndTracing(anArray, SIZE);¶	sum_parallel(anArray, SIZE);¶	printThreadLastIndices();¶}¶¶//int main() {¶//	sum_parallel_driver();¶//}¶¶")]]]></diff>
+    <snapshot><![CDATA[#include <iostream>
+#include <omp.h>
+using namespace std;
+
+void initArrayAndTracing (double* anArray, int aSize);
+void printThreadLastIndices();
+void printSumWithTimes(int sum, int start, int end);
+void printNumThreads();
+void recordThreadIndex(int index);
+
+const int SIZE = 1000;
+
+void sum_parallel(double* anArray, int aSize) {
+	cout << "sum_parallel\n";
+
+	double start = omp_get_wtime();
+
+	double sum = 0;
+
+	for (int i = 0; i < aSize; i++) {
+		sum += anArray[i];
+		recordThreadIndex(i);
+	}
+
+	double end = omp_get_wtime();
+
+	printSumWithTimes(sum, start, end);
+
+}
+
+void sum_parallel_main() {
+	double* anArray = new double[SIZE];
+	initArrayAndTracing(anArray, SIZE);
+	sum_parallel(anArray, SIZE);
+	printThreadLastIndices();
+}
+
+//int main() {
+//	sum_parallel_driver();
+//}
+
+]]></snapshot>
+  </Command>
+  <Command __id="1732" _type="MoveCaretCommand" caretOffset="572" date="Tue May 12 10:54:13 EDT 2020" docOffset="572" starttimestamp="1589291180380" timestamp="4072747" />
+  <Command __id="1734" _type="MoveCaretCommand" caretOffset="0" date="Tue May 12 10:55:31 EDT 2020" docOffset="0" starttimestamp="1589291180380" timestamp="4150941" />
+  <Command __id="1735" _type="SelectTextCommand" caretOffset="456" date="Tue May 12 10:55:43 EDT 2020" end="456" start="435" starttimestamp="1589291180380" timestamp="4162720" />
+  <DocumentChange __id="4409" _type="Replace" date="Tue May 12 12:56:42 EDT 2020" docASTNodeCount="1" docActiveCodeLength="563" docExpressionCount="0" docLength="563" endLine="28" insertionLength="7" int_docASTNodeCount="1" int_docActiveCodeLength="556" int_docExpressionCount="0" int_docLength="556" length="6" offset="472" startLine="28" starttimestamp="1589291180380" timestamp="11422490">
+    <deletedText><![CDATA[random]]></deletedText>
+    <insertedText><![CDATA[randoms]]></insertedText>
+  </DocumentChange>
+  <DocumentChange __id="4410" _type="Replace" date="Tue May 12 12:56:42 EDT 2020" docASTNodeCount="1" docActiveCodeLength="564" docExpressionCount="0" docLength="564" endLine="10" insertionLength="7" int_docASTNodeCount="1" int_docActiveCodeLength="557" int_docExpressionCount="0" int_docLength="557" length="6" offset="177" startLine="10" starttimestamp="1589291180380" timestamp="11422494">
+    <deletedText><![CDATA[random]]></deletedText>
+    <insertedText><![CDATA[randoms]]></insertedText>
+  </DocumentChange>
+  <Command __id="4411" _type="MoveCaretCommand" caretOffset="443" date="Tue May 12 12:56:51 EDT 2020" docOffset="443" starttimestamp="1589291180380" timestamp="11431494" />
+  <Command __id="4413" _type="MoveCaretCommand" caretOffset="700" date="Tue May 12 12:56:57 EDT 2020" docOffset="700" starttimestamp="1589291180380" timestamp="11436727" />
+  <Command __id="4414" _type="MoveCaretCommand" caretOffset="313" date="Tue May 12 12:57:08 EDT 2020" docOffset="313" starttimestamp="1589291180380" timestamp="11448293" />
+  <Command __id="4415" _type="SelectTextCommand" caretOffset="313" date="Tue May 12 12:57:09 EDT 2020" end="313" start="310" starttimestamp="1589291180380" timestamp="11448768" />
+  <Command __id="4416" _type="SelectTextCommand" caretOffset="323" date="Tue May 12 12:57:09 EDT 2020" end="323" start="298" starttimestamp="1589291180380" timestamp="11449030" />
+  <DocumentChange __id="4429" _type="Delete" date="Tue May 12 12:57:54 EDT 2020" docASTNodeCount="1" docActiveCodeLength="583" docExpressionCount="0" docLength="583" endLine="26" length="1" offset="442" startLine="26" starttimestamp="1589291180380" timestamp="11494002">
+    <text><![CDATA[	]]></text>
+  </DocumentChange>
+  <Command __id="4431" _type="SelectTextCommand" caretOffset="576" date="Tue May 12 12:58:00 EDT 2020" end="576" start="465" starttimestamp="1589291180380" timestamp="11500211" />
+  <Command __id="4432" _type="MoveCaretCommand" caretOffset="576" date="Tue May 12 12:58:01 EDT 2020" docOffset="576" starttimestamp="1589291180380" timestamp="11501024" />
+  <DocumentChange __id="4674" _type="Insert" date="Tue May 12 13:03:44 EDT 2020" docASTNodeCount="1" docActiveCodeLength="2083" docExpressionCount="0" docLength="3317" length="1" offset="1964" starttimestamp="1589291180380" timestamp="11843966">
+    <text><![CDATA[e]]></text>
+  </DocumentChange>
+  <DocumentChange __id="4676" _type="Insert" date="Tue May 12 13:03:44 EDT 2020" docASTNodeCount="1" docActiveCodeLength="2084" docExpressionCount="0" docLength="3318" length="1" offset="1965" starttimestamp="1589291180380" timestamp="11844187">
+    <text><![CDATA[o]]></text>
+  </DocumentChange>
+  <DocumentChange __id="4678" _type="Insert" date="Tue May 12 13:03:44 EDT 2020" docASTNodeCount="1" docActiveCodeLength="2085" docExpressionCount="0" docLength="3319" length="1" offset="1966" starttimestamp="1589291180380" timestamp="11844425">
+    <text><![CDATA[l]]></text>
+  </DocumentChange>
+  <DocumentChange __id="4680" _type="Insert" date="Tue May 12 13:03:45 EDT 2020" docASTNodeCount="1" docActiveCodeLength="2086" docExpressionCount="0" docLength="3320" length="1" offset="1967" starttimestamp="1589291180380" timestamp="11845192">
+    <text><![CDATA[;]]></text>
+  </DocumentChange>
+  <DocumentChange __id="4814" _type="Insert" date="Tue May 12 13:06:50 EDT 2020" docASTNodeCount="1" docActiveCodeLength="591" docExpressionCount="0" docLength="624" length="1" offset="502" starttimestamp="1589291180380" timestamp="12030261">
+    <text><![CDATA[2]]></text>
+  </DocumentChange>
+  <Command __id="4820" _type="MoveCaretCommand" caretOffset="454" date="Tue May 12 13:07:06 EDT 2020" docOffset="454" starttimestamp="1589291180380" timestamp="12045995" />
+  <Command __id="4821" _type="DiffBasedFileOpenCommand" date="Tue May 12 13:07:12 EDT 2020" docASTNodeCount="1" docActiveCodeLength="826" docExpressionCount="0" docLength="826" projectName="MyOpenMPTraining" starttimestamp="1589291180380" timestamp="12052301">
+    <filePath><![CDATA[D:\dewan_backup\C\MyOpenMPTraining\src\my_sum_parallel.cpp]]></filePath>
+    <diff><![CDATA[[Diff(EQUAL,"#include <iostream>¶#include <omp.h>¶¶using namespace std;¶¶void printSumWithTimes(int sum, int start, int end);¶void printNumThreads();¶void recordThreadIndex(int index);¶void sum_parallel(double* array, int size) {¶	cout << "sum_parallel\n";¶¶	double start = omp_get_wtime();¶¶	double sum = 0;¶¶¶    #pragma omp critical¶	{¶	double sum = 0;¶	}¶    #pragma omp parallel¶	{¶		double local_sum = 0;¶¶		int rank = omp_get_thread_num();¶		int threads = omp_get_num_threads();¶¶		int start_index = (size/threads)*rank;¶		int end_index = (size/threads)*(rank+1);¶¶		if(rank==threads-1)¶			end_index=size;¶¶		for(int i = start_index; i < end_index; i++) {¶			local_sum += array[i];¶			recordThreadIndex(i);¶		}¶¶		#pragma omp critical¶		sum += local_sum;¶	}¶¶	double end = omp_get_wtime();¶¶	printSumWithTimes(sum, start, end);¶¶¶}¶")]]]></diff>
+  </Command>
+  <Command __id="4822" _type="SelectTextCommand" caretOffset="323" date="Tue May 12 13:07:12 EDT 2020" end="323" start="298" starttimestamp="1589291180380" timestamp="12052456" />
+  <Command __id="4823" _type="DiffBasedFileOpenCommand" date="Tue May 12 13:07:39 EDT 2020" docASTNodeCount="1" docActiveCodeLength="659" docExpressionCount="0" docLength="747" projectName="MyOpenMPTraining" starttimestamp="1589291180380" timestamp="12079344">
+    <filePath><![CDATA[D:\dewan_backup\C\MyOpenMPTraining\src\my_sum_parallel_for_local_var.cpp]]></filePath>
+    <diff><![CDATA[[Diff(EQUAL,"#include <iostream>¶#include <omp.h>¶¶using namespace std;¶¶void printSumWithTimes (int sum, int start, int end);¶void printNumThreads();¶void recordThreadIndex(int index);¶void sum_parallel_for_local_var(double* array, int size)¶{¶	cout << "sum_parallel_for_local_var\n";¶¶	double start = omp_get_wtime();¶¶	double sum = 0;¶¶	int a, b;¶//¶//	for (int i = 0; i < size; i++) {¶//			sum += array[i];¶//			recordThreadIndex(i);¶//	}¶¶    #pragma omp parallel shared (sum, start) private (a, b)¶	{¶		double local_sum = 0;¶¶		#pragma omp for¶		for(int i = 0; i < size; i++) {¶			local_sum += array[i];¶			recordThreadIndex(i);¶		}¶¶		#pragma omp critical¶		sum += local_sum;¶	}¶¶	double end = omp_get_wtime();¶¶	printSumWithTimes(sum, start, end);¶	¶}¶")]]]></diff>
+  </Command>
+  <Command __id="4824" _type="SelectTextCommand" caretOffset="456" date="Tue May 12 13:07:39 EDT 2020" end="456" start="435" starttimestamp="1589291180380" timestamp="12079491" />
+  <Command __id="6228" _type="DiffBasedFileOpenCommand" date="Tue May 12 14:07:18 EDT 2020" docASTNodeCount="1" docActiveCodeLength="804" docExpressionCount="0" docLength="860" projectName="OpenMPTraining" starttimestamp="1589291180380" timestamp="15658095">
+    <filePath><![CDATA[D:\dewan_backup\C\OpenMPTraining\OpenMPTrainingC++\src\sum_parallel_for_local_var.cpp]]></filePath>
+    <diff><![CDATA[[Diff(EQUAL,"#include <iostream>¶#include <omp.h>¶using namespace std;¶¶void initArrayAndTracing (double* a"), Diff(DELETE,"n"), Diff(INSERT,"Number"), Diff(EQUAL,"Array, int aSize);¶void printThreadLastIndices();¶void printSumWithTimes(int sum, int start, int end);¶void printNumThreads();¶void recordThreadIndex(int index);¶¶const int SIZE = 1000;¶¶void sum_parallel_for_local_var(double* array, int size)¶{¶	cout << "sum_parallel_for_local_var\n";¶¶	double start = omp_get_wtime();¶¶	double sum = 0;¶¶	for (int i = 0; i < size; i++) {¶			sum += array[i];¶			recordThreadIndex(i);¶	}¶¶	double end = omp_get_wtime();¶¶	printSumWithTimes(sum, start, end);¶	¶}¶¶void sum_parallel_for_local_var_main() {¶	double* a"), Diff(DELETE,"n"), Diff(INSERT,"Number"), Diff(EQUAL,"Array = new double[SIZE];¶	initArrayAndTracing(a"), Diff(DELETE,"n"), Diff(INSERT,"Number"), Diff(EQUAL,"Array, SIZE);¶	sum_parallel_for_local_var(a"), Diff(DELETE,"n"), Diff(INSERT,"Number"), Diff(EQUAL,"Array, SIZE);¶	printThreadLastIndices();¶}¶¶//int main() {¶//	sum_parallel_for_local_var_driver();¶//}¶")]]]></diff>
+    <snapshot><![CDATA[#include <iostream>
+#include <omp.h>
+using namespace std;
+
+void initArrayAndTracing (double* aNumberArray, int aSize);
+void printThreadLastIndices();
+void printSumWithTimes(int sum, int start, int end);
+void printNumThreads();
+void recordThreadIndex(int index);
+
+const int SIZE = 1000;
+
+void sum_parallel_for_local_var(double* array, int size)
+{
+	cout << "sum_parallel_for_local_var\n";
+
+	double start = omp_get_wtime();
+
+	double sum = 0;
+
+	for (int i = 0; i < size; i++) {
+			sum += array[i];
+			recordThreadIndex(i);
+	}
+
+	double end = omp_get_wtime();
+
+	printSumWithTimes(sum, start, end);
+	
+}
+
+void sum_parallel_for_local_var_main() {
+	double* aNumberArray = new double[SIZE];
+	initArrayAndTracing(aNumberArray, SIZE);
+	sum_parallel_for_local_var(aNumberArray, SIZE);
+	printThreadLastIndices();
+}
+
+//int main() {
+//	sum_parallel_for_local_var_driver();
+//}
+]]></snapshot>
+  </Command>
+  <Command __id="6229" _type="SelectTextCommand" caretOffset="659" date="Tue May 12 14:07:18 EDT 2020" end="659" start="647" starttimestamp="1589291180380" timestamp="15658212" />
+  <Command __id="6234" _type="DiffBasedFileOpenCommand" date="Tue May 12 14:18:03 EDT 2020" docASTNodeCount="1" docActiveCodeLength="1070" docExpressionCount="0" docLength="1127" projectName="OpenMPTraining" starttimestamp="1589291180380" timestamp="16303427">
+    <filePath><![CDATA[D:\dewan_backup\C\OpenMPTraining\OpenMPTrainingC++\src\random.cpp]]></filePath>
+    <diff><![CDATA[[Diff(EQUAL,"#include <iostream>¶#include <omp.h>¶#include <stdlib.h>¶using namespace std;¶¶¶const int NUMBER_OF_RANDOMS = 10;¶const int NUMBER_OF_THREADS = 2;¶¶¶int* randoms( int aNumberOfRandoms) {¶¶//	cout << "random_sequential\n";¶¶	int* aRandomNumbers = new int[NUMBER_OF_RANDOMS];¶¶	for (int i = 0; i < aNumberOfRandoms; i++) {¶		aRandomNumbers[i] = rand();¶	}¶¶	return aRandomNumbers;¶¶¶}¶void printIntArray (int* anArray, int aSize) {¶	cout << "Int Array:" << endl;¶	for (int i = 0; i < aSize; i++) {¶		#pragma omp critical¶		cout << "Thread:" << omp_get_thread_num() << " Index:" << i << " Value: " << anArray[i] << endl;¶	}¶}¶¶void computeAndPrintSingleRandom() {¶	"), Diff(INSERT,"#pragma omp parallel num_threads(NUMBER_OF_THREADS)¶	{¶		"), Diff(EQUAL,"srand(omp_get_thread_num());¶"), Diff(INSERT,"//		#pragma omp critical¶	"), Diff(EQUAL,"	cout << "Thread:" << omp_get_thread_num() <<"), Diff(INSERT," " Random:" <<"), Diff(EQUAL," rand() << endl;¶"), Diff(INSERT,"	}¶¶"), Diff(EQUAL,"}¶void computeAndPrintRandoms() {¶	int* aRandomNumbers = randoms(NUMBER_OF_RANDOMS);¶	printIntArray(aRandomNumbers, NUMBER_OF_RANDOMS);¶}¶¶void random_main() {¶	"), Diff(DELETE,"#pragma omp parallel num_threads(NUMBER_OF_THREADS)¶	{¶		"), Diff(EQUAL,"computeAndPrintSingleRandom();¶"), Diff(DELETE,"//	"), Diff(EQUAL,"	computeAndPrintRandoms();¶"), Diff(DELETE,"	}¶"), Diff(EQUAL,"}¶¶")]]]></diff>
+    <snapshot><![CDATA[#include <iostream>
+#include <omp.h>
+#include <stdlib.h>
+using namespace std;
+
+
+const int NUMBER_OF_RANDOMS = 10;
+const int NUMBER_OF_THREADS = 2;
+
+
+int* randoms( int aNumberOfRandoms) {
+
+//	cout << "random_sequential\n";
+
+	int* aRandomNumbers = new int[NUMBER_OF_RANDOMS];
+
+	for (int i = 0; i < aNumberOfRandoms; i++) {
+		aRandomNumbers[i] = rand();
+	}
+
+	return aRandomNumbers;
+
+
+}
+void printIntArray (int* anArray, int aSize) {
+	cout << "Int Array:" << endl;
+	for (int i = 0; i < aSize; i++) {
+		#pragma omp critical
+		cout << "Thread:" << omp_get_thread_num() << " Index:" << i << " Value: " << anArray[i] << endl;
+	}
+}
+
+void computeAndPrintSingleRandom() {
+	#pragma omp parallel num_threads(NUMBER_OF_THREADS)
+	{
+		srand(omp_get_thread_num());
+//		#pragma omp critical
+		cout << "Thread:" << omp_get_thread_num() << " Random:" << rand() << endl;
+	}
+
+}
+void computeAndPrintRandoms() {
+	int* aRandomNumbers = randoms(NUMBER_OF_RANDOMS);
+	printIntArray(aRandomNumbers, NUMBER_OF_RANDOMS);
+}
+
+void random_main() {
+	computeAndPrintSingleRandom();
+	computeAndPrintRandoms();
+}
+
+]]></snapshot>
+  </Command>
+  <Command __id="6237" _type="ShellCommand" date="Tue May 12 14:21:26 EDT 2020" starttimestamp="1589291180380" timestamp="16505671" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="6240" _type="DiffBasedFileOpenCommand" date="Tue May 12 14:24:11 EDT 2020" docASTNodeCount="1" docActiveCodeLength="1070" docExpressionCount="0" docLength="1127" projectName="OpenMPTraining" starttimestamp="1589291180380" timestamp="16671574">
+    <filePath><![CDATA[D:\dewan_backup\C\OpenMPTraining\OpenMPTrainingC++\src\random.cpp]]></filePath>
+    <diff><![CDATA[[Diff(EQUAL,"#include <iostream>¶#include <omp.h>¶#include <stdlib.h>¶using namespace std;¶¶¶const int NUMBER_OF_RANDOMS = 10;¶const int NUMBER_OF_THREADS = 2;¶¶¶int* randoms( int aNumberOfRandoms) {¶¶//	cout << "random_sequential\n";¶¶	int* aRandomNumbers = new int[NUMBER_OF_RANDOMS];¶¶	for (int i = 0; i < aNumberOfRandoms; i++) {¶		aRandomNumbers[i] = rand();¶	}¶¶	return aRandomNumbers;¶¶¶}¶void printIntArray (int* anArray, int aSize) {¶	cout << "Int Array:" << endl;¶	for (int i = 0; i < aSize; i++) {¶		#pragma omp critical¶		cout << "Thread:" << omp_get_thread_num() << " Index:" << i << " Value: " << anArray[i] << endl;¶	}¶}¶¶void computeAndPrintSingleRandom() {¶	#pragma omp parallel num_threads(NUMBER_OF_THREADS)¶	{¶		srand(omp_get_thread_num());¶//		#pragma omp critical¶		cout << "Thread:" << omp_get_thread_num() << " Random:" << rand() << endl;¶	}¶¶}¶void computeAndPrintRandoms() {¶	int* aRandomNumbers = randoms(NUMBER_OF_RANDOMS);¶	printIntArray(aRandomNumbers, NUMBER_OF_RANDOMS);¶}¶¶void random_main() {¶	computeAndPrintSingleRandom();¶	computeAndPrintRandoms();¶}¶¶")]]]></diff>
+  </Command>
+  <Command __id="6241" _type="MoveCaretCommand" caretOffset="1094" date="Tue May 12 14:24:12 EDT 2020" docOffset="1094" starttimestamp="1589291180380" timestamp="16671726" />
+  <Command __id="6244" _type="DiffBasedFileOpenCommand" date="Tue May 12 14:25:00 EDT 2020" docASTNodeCount="1" docActiveCodeLength="1070" docExpressionCount="0" docLength="1127" projectName="OpenMPTraining" starttimestamp="1589291180380" timestamp="16720460">
+    <filePath><![CDATA[D:\dewan_backup\C\OpenMPTraining\OpenMPTrainingC++\src\random.cpp]]></filePath>
+    <diff><![CDATA[[Diff(EQUAL,"#include <iostream>¶#include <omp.h>¶#include <stdlib.h>¶using namespace std;¶¶¶const int NUMBER_OF_RANDOMS = 10;¶const int NUMBER_OF_THREADS = 2;¶¶¶int* randoms( int aNumberOfRandoms) {¶¶//	cout << "random_sequential\n";¶¶	int* aRandomNumbers = new int[NUMBER_OF_RANDOMS];¶¶	for (int i = 0; i < aNumberOfRandoms; i++) {¶		aRandomNumbers[i] = rand();¶	}¶¶	return aRandomNumbers;¶¶¶}¶void printIntArray (int* anArray, int aSize) {¶	cout << "Int Array:" << endl;¶	for (int i = 0; i < aSize; i++) {¶		#pragma omp critical¶		cout << "Thread:" << omp_get_thread_num() << " Index:" << i << " Value: " << anArray[i] << endl;¶	}¶}¶¶void computeAndPrintSingleRandom() {¶	#pragma omp parallel num_threads(NUMBER_OF_THREADS)¶	{¶		srand(omp_get_thread_num());¶//		#pragma omp critical¶		cout << "Thread:" << omp_get_thread_num() << " Random:" << rand() << endl;¶	}¶¶}¶void computeAndPrintRandoms() {¶	int* aRandomNumbers = randoms(NUMBER_OF_RANDOMS);¶	printIntArray(aRandomNumbers, NUMBER_OF_RANDOMS);¶}¶¶void random_main() {¶	computeAndPrintSingleRandom();¶	computeAndPrintRandoms();¶}¶¶")]]]></diff>
+  </Command>
+  <Command __id="6246" _type="MoveCaretCommand" caretOffset="233" date="Tue May 12 14:27:52 EDT 2020" docOffset="233" starttimestamp="1589291180380" timestamp="16891668" />
+  <Command __id="6248" _type="SelectTextCommand" caretOffset="456" date="Tue May 12 14:27:54 EDT 2020" end="456" start="435" starttimestamp="1589291180380" timestamp="16894273" />
+  <Command __id="6247" _type="DiffBasedFileOpenCommand" date="Tue May 12 14:27:54 EDT 2020" docASTNodeCount="1" docActiveCodeLength="659" docExpressionCount="0" docLength="747" projectName="MyOpenMPTraining" starttimestamp="1589291180380" timestamp="16894098">
+    <filePath><![CDATA[D:\dewan_backup\C\MyOpenMPTraining\src\my_sum_parallel_for_local_var.cpp]]></filePath>
+    <diff><![CDATA[[Diff(EQUAL,"#include <iostream>¶#include <omp.h>¶¶using namespace std;¶¶void printSumWithTimes (int sum, int start, int end);¶void printNumThreads();¶void recordThreadIndex(int index);¶void sum_parallel_for_local_var(double* array, int size)¶{¶	cout << "sum_parallel_for_local_var\n";¶¶	double start = omp_get_wtime();¶¶	double sum = 0;¶¶	int a, b;¶//¶//	for (int i = 0; i < size; i++) {¶//			sum += array[i];¶//			recordThreadIndex(i);¶//	}¶¶    #pragma omp parallel shared (sum, start) private (a, b)¶	{¶		double local_sum = 0;¶¶		#pragma omp for¶		for(int i = 0; i < size; i++) {¶			local_sum += array[i];¶			recordThreadIndex(i);¶		}¶¶		#pragma omp critical¶		sum += local_sum;¶	}¶¶	double end = omp_get_wtime();¶¶	printSumWithTimes(sum, start, end);¶	¶}¶")]]]></diff>
+  </Command>
+  <Command __id="6249" _type="MoveCaretCommand" caretOffset="464" date="Tue May 12 14:28:02 EDT 2020" docOffset="464" starttimestamp="1589291180380" timestamp="16901715" />
+  <Command __id="6250" _type="SelectTextCommand" caretOffset="474" date="Tue May 12 14:28:02 EDT 2020" end="474" start="464" starttimestamp="1589291180380" timestamp="16901950" />
+  <Command __id="6251" _type="SelectTextCommand" caretOffset="491" date="Tue May 12 14:28:02 EDT 2020" end="491" start="431" starttimestamp="1589291180380" timestamp="16902171" />
+  <Command __id="6252" _type="CopyCommand" date="Tue May 12 14:28:03 EDT 2020" starttimestamp="1589291180380" timestamp="16903092" />
+  <DocumentChange __id="9110" _type="Delete" date="Wed May 13 12:08:02 EDT 2020" docASTNodeCount="1" docActiveCodeLength="1731" docExpressionCount="0" docLength="1897" endLine="17" length="1" offset="466" startLine="17" starttimestamp="1589291180380" timestamp="94902013">
+    <text><![CDATA[U]]></text>
+  </DocumentChange>
+  <DocumentChange __id="9114" _type="Replace" date="Wed May 13 12:08:05 EDT 2020" docASTNodeCount="1" docActiveCodeLength="1729" docExpressionCount="0" docLength="1895" endLine="17" insertionLength="1" int_docASTNodeCount="1" int_docActiveCodeLength="1728" int_docExpressionCount="0" int_docLength="1894" length="3" offset="435" startLine="17" starttimestamp="1589291180380" timestamp="94905109">
+    <deletedText><![CDATA[int]]></deletedText>
+    <insertedText><![CDATA[d]]></insertedText>
+  </DocumentChange>
+  <DocumentChange __id="9116" _type="Insert" date="Wed May 13 12:08:05 EDT 2020" docASTNodeCount="1" docActiveCodeLength="1730" docExpressionCount="0" docLength="1896" length="1" offset="436" starttimestamp="1589291180380" timestamp="94905207">
+    <text><![CDATA[o]]></text>
+  </DocumentChange>
+  <DocumentChange __id="9118" _type="Insert" date="Wed May 13 12:08:05 EDT 2020" docASTNodeCount="1" docActiveCodeLength="1731" docExpressionCount="0" docLength="1897" length="1" offset="437" starttimestamp="1589291180380" timestamp="94905449">
+    <text><![CDATA[u]]></text>
+  </DocumentChange>
+  <DocumentChange __id="9120" _type="Insert" date="Wed May 13 12:08:06 EDT 2020" docASTNodeCount="1" docActiveCodeLength="1732" docExpressionCount="0" docLength="1898" length="1" offset="438" starttimestamp="1589291180380" timestamp="94905680">
+    <text><![CDATA[b]]></text>
+  </DocumentChange>
+  <DocumentChange __id="9122" _type="Insert" date="Wed May 13 12:08:06 EDT 2020" docASTNodeCount="1" docActiveCodeLength="1733" docExpressionCount="0" docLength="1899" length="1" offset="439" starttimestamp="1589291180380" timestamp="94905980">
+    <text><![CDATA[l]]></text>
+  </DocumentChange>
+  <DocumentChange __id="9124" _type="Insert" date="Wed May 13 12:08:06 EDT 2020" docASTNodeCount="1" docActiveCodeLength="1734" docExpressionCount="0" docLength="1900" length="1" offset="440" starttimestamp="1589291180380" timestamp="94906089">
+    <text><![CDATA[e]]></text>
+  </DocumentChange>
+  <Command __id="9126" _type="MoveCaretCommand" caretOffset="446" date="Wed May 13 12:08:07 EDT 2020" docOffset="446" starttimestamp="1589291180380" timestamp="94907479" />
+  <Command __id="9127" _type="SelectTextCommand" caretOffset="462" date="Wed May 13 12:08:08 EDT 2020" end="462" start="442" starttimestamp="1589291180380" timestamp="94907734" />
+  <DocumentChange __id="9461" _type="Insert" date="Wed May 13 12:15:21 EDT 2020" docASTNodeCount="1" docActiveCodeLength="1774" docExpressionCount="0" docLength="1940" length="1" offset="466" starttimestamp="1589291180380" timestamp="95341063">
+    <text><![CDATA[a]]></text>
+  </DocumentChange>
+  <DocumentChange __id="9463" _type="Insert" date="Wed May 13 12:15:21 EDT 2020" docASTNodeCount="1" docActiveCodeLength="1775" docExpressionCount="0" docLength="1941" length="1" offset="467" starttimestamp="1589291180380" timestamp="95341223">
+    <text><![CDATA[d]]></text>
+  </DocumentChange>
+  <Command __id="9465" _type="DiffBasedFileOpenCommand" date="Wed May 13 12:15:26 EDT 2020" docASTNodeCount="1" docActiveCodeLength="659" docExpressionCount="0" docLength="747" projectName="MyOpenMPTraining" starttimestamp="1589291180380" timestamp="95345964">
+    <filePath><![CDATA[D:\dewan_backup\C\MyOpenMPTraining\src\my_sum_parallel_for_local_var.cpp]]></filePath>
+    <diff><![CDATA[[Diff(EQUAL,"#include <iostream>¶#include <omp.h>¶¶using namespace std;¶¶void printSumWithTimes (int sum, int start, int end);¶void printNumThreads();¶void recordThreadIndex(int index);¶void sum_parallel_for_local_var(double* array, int size)¶{¶	cout << "sum_parallel_for_local_var\n";¶¶	double start = omp_get_wtime();¶¶	double sum = 0;¶¶	int a, b;¶//¶//	for (int i = 0; i < size; i++) {¶//			sum += array[i];¶//			recordThreadIndex(i);¶//	}¶¶    #pragma omp parallel shared (sum, start) private (a, b)¶	{¶		double local_sum = 0;¶¶		#pragma omp for¶		for(int i = 0; i < size; i++) {¶			local_sum += array[i];¶			recordThreadIndex(i);¶		}¶¶		#pragma omp critical¶		sum += local_sum;¶	}¶¶	double end = omp_get_wtime();¶¶	printSumWithTimes(sum, start, end);¶	¶}¶")]]]></diff>
+  </Command>
+  <Command __id="9421" _type="MoveCaretCommand" caretOffset="458" date="Wed May 13 12:15:14 EDT 2020" docOffset="458" starttimestamp="1589291180380" timestamp="95333928" />
+  <Command __id="9422" _type="SelectTextCommand" caretOffset="474" date="Wed May 13 12:15:14 EDT 2020" end="474" start="457" starttimestamp="1589291180380" timestamp="95334196" />
+  <Command __id="9424" _type="InsertStringCommand" date="Wed May 13 12:15:15 EDT 2020" starttimestamp="1589291180380" timestamp="95334732" timestamp2="95334732">
+    <data><![CDATA[a]]></data>
+  </Command>
+  <Command __id="9426" _type="InsertStringCommand" date="Wed May 13 12:15:15 EDT 2020" starttimestamp="1589291180380" timestamp="95335332" timestamp2="95335332">
+    <data><![CDATA[N]]></data>
+  </Command>
+  <Command __id="9428" _type="InsertStringCommand" date="Wed May 13 12:15:15 EDT 2020" starttimestamp="1589291180380" timestamp="95335612" timestamp2="95335612">
+    <data><![CDATA[e]]></data>
+  </Command>
+  <Command __id="9430" _type="InsertStringCommand" date="Wed May 13 12:15:16 EDT 2020" starttimestamp="1589291180380" timestamp="95335836" timestamp2="95335836">
+    <data><![CDATA[x]]></data>
+  </Command>
+  <Command __id="9432" _type="InsertStringCommand" date="Wed May 13 12:15:16 EDT 2020" starttimestamp="1589291180380" timestamp="95336066" timestamp2="95336066">
+    <data><![CDATA[t]]></data>
+  </Command>
+  <Command __id="9434" _type="InsertStringCommand" date="Wed May 13 12:15:17 EDT 2020" starttimestamp="1589291180380" timestamp="95336742" timestamp2="95336742">
+    <data><![CDATA[T]]></data>
+  </Command>
+  <Command __id="9436" _type="InsertStringCommand" date="Wed May 13 12:15:17 EDT 2020" starttimestamp="1589291180380" timestamp="95337179" timestamp2="95337179">
+    <data><![CDATA[r]]></data>
+  </Command>
+  <Command __id="9438" _type="InsertStringCommand" date="Wed May 13 12:15:17 EDT 2020" starttimestamp="1589291180380" timestamp="95337309" timestamp2="95337309">
+    <data><![CDATA[e]]></data>
+  </Command>
+  <Command __id="9440" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.DELETE_PREVIOUS" date="Wed May 13 12:15:18 EDT 2020" starttimestamp="1589291180380" timestamp="95337831" />
+  <Command __id="9442" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.DELETE_PREVIOUS" date="Wed May 13 12:15:18 EDT 2020" starttimestamp="1589291180380" timestamp="95337969" />
+  <Command __id="9444" _type="InsertStringCommand" date="Wed May 13 12:15:18 EDT 2020" starttimestamp="1589291180380" timestamp="95338413" timestamp2="95338413">
+    <data><![CDATA[j]]></data>
+  </Command>
+  <Command __id="9446" _type="InsertStringCommand" date="Wed May 13 12:15:19 EDT 2020" starttimestamp="1589291180380" timestamp="95338772" timestamp2="95338772">
+    <data><![CDATA[r]]></data>
+  </Command>
+  <Command __id="9448" _type="InsertStringCommand" date="Wed May 13 12:15:19 EDT 2020" starttimestamp="1589291180380" timestamp="95338893" timestamp2="95338893">
+    <data><![CDATA[e]]></data>
+  </Command>
+  <Command __id="9450" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.DELETE_PREVIOUS" date="Wed May 13 12:15:19 EDT 2020" starttimestamp="1589291180380" timestamp="95339512" />
+  <Command __id="9452" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.DELETE_PREVIOUS" date="Wed May 13 12:15:20 EDT 2020" starttimestamp="1589291180380" timestamp="95339675" />
+  <Command __id="9454" _type="EclipseCommand" commandID="eventLogger.styledTextCommand.DELETE_PREVIOUS" date="Wed May 13 12:15:20 EDT 2020" starttimestamp="1589291180380" timestamp="95339850" />
+  <Command __id="9456" _type="InsertStringCommand" date="Wed May 13 12:15:20 EDT 2020" starttimestamp="1589291180380" timestamp="95340567" timestamp2="95340567">
+    <data><![CDATA[h]]></data>
+  </Command>
+  <Command __id="9458" _type="InsertStringCommand" date="Wed May 13 12:15:21 EDT 2020" starttimestamp="1589291180380" timestamp="95340841" timestamp2="95340841">
+    <data><![CDATA[r]]></data>
+  </Command>
+  <Command __id="9460" _type="InsertStringCommand" date="Wed May 13 12:15:21 EDT 2020" starttimestamp="1589291180380" timestamp="95340873" timestamp2="95340873">
+    <data><![CDATA[e]]></data>
+  </Command>
+  <Command __id="9462" _type="InsertStringCommand" date="Wed May 13 12:15:21 EDT 2020" starttimestamp="1589291180380" timestamp="95341071" timestamp2="95341071">
+    <data><![CDATA[a]]></data>
+  </Command>
+  <Command __id="9464" _type="InsertStringCommand" date="Wed May 13 12:15:21 EDT 2020" starttimestamp="1589291180380" timestamp="95341226" timestamp2="95341226">
+    <data><![CDATA[d]]></data>
+  </Command>
+  <Command __id="9466" _type="SelectTextCommand" caretOffset="491" date="Wed May 13 12:15:26 EDT 2020" end="491" start="431" starttimestamp="1589291180380" timestamp="95346069" />
+  <Command __id="9468" _type="SelectTextCommand" caretOffset="323" date="Wed May 13 12:15:51 EDT 2020" end="323" start="298" starttimestamp="1589291180380" timestamp="95371182" />
+  <Command __id="9469" _type="ShellCommand" date="Wed May 13 12:16:01 EDT 2020" starttimestamp="1589291180380" timestamp="95380867" type="ECLIPSE_LOST_FOCUS" />
+  <DocumentChange __id="13136" _type="Delete" date="Wed May 13 15:37:58 EDT 2020" docASTNodeCount="1" docActiveCodeLength="2131" docExpressionCount="0" docLength="3306" endLine="86" length="1" offset="3098" startLine="86" starttimestamp="1589291180380" timestamp="107498550">
+    <text><![CDATA[	]]></text>
+  </DocumentChange>
+  <Command __id="13138" _type="DiffBasedFileOpenCommand" date="Wed May 13 15:38:04 EDT 2020" docASTNodeCount="1" docActiveCodeLength="659" docExpressionCount="0" docLength="747" projectName="MyOpenMPTraining" starttimestamp="1589291180380" timestamp="107503705">
+    <filePath><![CDATA[D:\dewan_backup\C\MyOpenMPTraining\src\my_sum_parallel_for_local_var.cpp]]></filePath>
+    <diff><![CDATA[[Diff(EQUAL,"#include <iostream>¶#include <omp.h>¶¶using namespace std;¶¶void printSumWithTimes (int sum, int start, int end);¶void printNumThreads();¶void recordThreadIndex(int index);¶void sum_parallel_for_local_var(double* array, int size)¶{¶	cout << "sum_parallel_for_local_var\n";¶¶	double start = omp_get_wtime();¶¶	double sum = 0;¶¶	int a, b;¶//¶//	for (int i = 0; i < size; i++) {¶//			sum += array[i];¶//			recordThreadIndex(i);¶//	}¶¶    #pragma omp parallel shared (sum, start) private (a, b)¶	{¶		double local_sum = 0;¶¶		#pragma omp for¶		for(int i = 0; i < size; i++) {¶			local_sum += array[i];¶			recordThreadIndex(i);¶		}¶¶		#pragma omp critical¶		sum += local_sum;¶	}¶¶	double end = omp_get_wtime();¶¶	printSumWithTimes(sum, start, end);¶	¶}¶")]]]></diff>
+  </Command>
+  <Command __id="13296" _type="DiffBasedFileOpenCommand" date="Wed May 13 15:45:39 EDT 2020" docASTNodeCount="1" docActiveCodeLength="2092" docExpressionCount="0" docLength="3369" projectName="OpenMPTraining" starttimestamp="1589291180380" timestamp="107959402">
+    <filePath><![CDATA[D:\dewan_backup\C\OpenMPTraining\OpenMPTrainingC++\src\random.cpp]]></filePath>
+    <diff><![CDATA[[Diff(EQUAL,"#include <iostream>¶#include <omp.h>¶#include <stdlib.h>¶#include <math.h>¶using namespace std;¶¶const int NUMBER_OF_RANDOMS = 10;¶const int NUMBER_OF_THREADS = 1;¶struct ThreadIndices {¶	int startIndex, endIndex;¶};¶ThreadIndices computeThreadIndices (int aStartIndex, int anEndIndex);¶//ThreadIndices computeThreadIndices (int aStartIndex, int anEndIndex) {¶//	int aNumberOfIterations = anEndIndex - aStartIndex;¶//	int aThreadNumIterations = aNumberOfIterations/omp_get_num_threads();¶//	int aThreadStartIndex = aThreadNumIterations*omp_get_thread_num();¶//	int aRemainingIterations = aNumberOfIterations - (aThreadNumIterations*omp_get_num_threads());¶//	if (omp_get_thread_num() == omp_get_num_threads() -1 ) {¶//			aThreadNumIterations += aRemainingIterations;¶//	}¶//	ThreadIndices retVal;¶//	retVal.startIndex = aThreadStartIndex;¶//	retVal.endIndex = aThreadStartIndex + aThreadNumIterations;¶//	return retVal;¶//¶//}¶¶bool processIteration (int anIndex) {¶	bool retVal;¶	#pragma omp critical¶	retVal = ((anIndex + 1) % (omp_get_thread_num() + 1) == 0);¶	return retVal;¶}¶¶¶void randoms(int* aRandomNumbers, int aNumberOfRandoms) {¶	{¶//		srand(omp_get_thread_num());¶//		int aThreadNumIterations = aNumberOfRandoms/omp_get_num_threads();¶//		int aThreadStartIndex = aThreadNumIterations*omp_get_thread_num();¶//		int aRemainingIterations = aNumberOfRandoms - (aThreadNumIterations*omp_get_num_threads());¶//		if (omp_get_thread_num() == omp_get_num_threads() -1 ) {¶//				aThreadNumIterations += aRemainingIterations;¶//		}¶		ThreadIndices aThreadIndices = computeThreadIndices(0, aNumberOfRandoms);¶		#pragma omp critical¶		cout << "Thread:" << omp_get_thread_num()  << " allocated start index:" << aThreadIndices.startIndex << " and num end index: " << aThreadIndices.endIndex  << endl;¶		for (int anIndex = aThreadIndices.startIndex; anIndex < aThreadIndices.endIndex; anIndex++) {¶			aRandomNumbers[anIndex] = rand();¶		}¶	}¶}¶¶void printIntArray (int* anArray, int aSize) {¶	ThreadIndices aThreadIndices = computeThreadIndices(0, aSize);¶	cout << "Int Array:" << endl;¶	for (int anIndex = aThreadIndices.startIndex; anIndex < aThreadIndices.endIndex; anIndex++) {¶		cout << "Thread:" << omp_get_thread_num() << " Index:" << anIndex << " Value: " << anArray[anIndex] << endl;¶	}¶}¶¶void computeAndPrintSingleRandom() {¶//	#pragma omp parallel num_threads(NUMBER_OF_THREADS)¶	{¶		#pragma omp parallel num_threads(NUMBER_OF_THREADS)¶		srand(omp_get_thread_num());¶//		#pragma omp critical¶		cout << "Thread:" << omp_get_thread_num() << " Random:" << rand() << endl;¶	}¶¶}¶void computeAndPrintRandomsSequential() {¶¶	int* aRandomNumbers = new int[NUMBER_OF_RANDOMS];¶¶	randoms(aRandomNumbers, NUMBER_OF_RANDOMS);¶¶	printIntArray(aRandomNumbers, NUMBER_OF_RANDOMS);¶¶}¶void computeRandomsInParallelAndPrintRandoms(int aNumThreads) {¶¶	int* aRandomNumbers = new int[NUMBER_OF_RANDOMS];¶	#pragma omp parallel private(aRandomNumbers) num_threads (aNumThreads)¶	{¶//		int* aRandomNumbers = new int[NUMBER_OF_RANDOMS];¶		randoms(aRandomNumbers, NUMBER_OF_RANDOMS);¶	}¶//	#pragma omp parallel num_threads (aNumThreads)¶	printIntArray(aRandomNumbers, NUMBER_OF_RANDOMS);¶}¶¶¶//void random_main() {¶////	computeAndPrintSingleRandom();¶//	computeAndPrintRandoms();¶//}¶¶")]]]></diff>
+  </Command>
+  <Command __id="13300" _type="DiffBasedFileOpenCommand" date="Wed May 13 15:45:47 EDT 2020" projectName="null" starttimestamp="1589291180380" timestamp="107966748">
+    <filePath><![CDATA[null]]></filePath>
+    <diff><![CDATA[null]]></diff>
+  </Command>
+  <Command __id="13301" _type="DiffBasedFileOpenCommand" date="Wed May 13 15:45:47 EDT 2020" docASTNodeCount="1" docActiveCodeLength="2092" docExpressionCount="0" docLength="3369" projectName="OpenMPTraining" starttimestamp="1589291180380" timestamp="107967171">
+    <filePath><![CDATA[D:\dewan_backup\C\OpenMPTraining\OpenMPTrainingC++\src\random.cpp]]></filePath>
+    <diff><![CDATA[[Diff(EQUAL,"#include <iostream>¶#include <omp.h>¶#include <stdlib.h>¶#include <math.h>¶using namespace std;¶¶const int NUMBER_OF_RANDOMS = 10;¶const int NUMBER_OF_THREADS = 1;¶struct ThreadIndices {¶	int startIndex, endIndex;¶};¶ThreadIndices computeThreadIndices (int aStartIndex, int anEndIndex);¶//ThreadIndices computeThreadIndices (int aStartIndex, int anEndIndex) {¶//	int aNumberOfIterations = anEndIndex - aStartIndex;¶//	int aThreadNumIterations = aNumberOfIterations/omp_get_num_threads();¶//	int aThreadStartIndex = aThreadNumIterations*omp_get_thread_num();¶//	int aRemainingIterations = aNumberOfIterations - (aThreadNumIterations*omp_get_num_threads());¶//	if (omp_get_thread_num() == omp_get_num_threads() -1 ) {¶//			aThreadNumIterations += aRemainingIterations;¶//	}¶//	ThreadIndices retVal;¶//	retVal.startIndex = aThreadStartIndex;¶//	retVal.endIndex = aThreadStartIndex + aThreadNumIterations;¶//	return retVal;¶//¶//}¶¶bool processIteration (int anIndex) {¶	bool retVal;¶	#pragma omp critical¶	retVal = ((anIndex + 1) % (omp_get_thread_num() + 1) == 0);¶	return retVal;¶}¶¶¶void randoms(int* aRandomNumbers, int aNumberOfRandoms) {¶	{¶//		srand(omp_get_thread_num());¶//		int aThreadNumIterations = aNumberOfRandoms/omp_get_num_threads();¶//		int aThreadStartIndex = aThreadNumIterations*omp_get_thread_num();¶//		int aRemainingIterations = aNumberOfRandoms - (aThreadNumIterations*omp_get_num_threads());¶//		if (omp_get_thread_num() == omp_get_num_threads() -1 ) {¶//				aThreadNumIterations += aRemainingIterations;¶//		}¶		ThreadIndices aThreadIndices = computeThreadIndices(0, aNumberOfRandoms);¶		#pragma omp critical¶		cout << "Thread:" << omp_get_thread_num()  << " allocated start index:" << aThreadIndices.startIndex << " and num end index: " << aThreadIndices.endIndex  << endl;¶		for (int anIndex = aThreadIndices.startIndex; anIndex < aThreadIndices.endIndex; anIndex++) {¶			aRandomNumbers[anIndex] = rand();¶		}¶	}¶}¶¶void printIntArray (int* anArray, int aSize) {¶	ThreadIndices aThreadIndices = computeThreadIndices(0, aSize);¶	cout << "Int Array:" << endl;¶	for (int anIndex = aThreadIndices.startIndex; anIndex < aThreadIndices.endIndex; anIndex++) {¶		cout << "Thread:" << omp_get_thread_num() << " Index:" << anIndex << " Value: " << anArray[anIndex] << endl;¶	}¶}¶¶void computeAndPrintSingleRandom() {¶//	#pragma omp parallel num_threads(NUMBER_OF_THREADS)¶	{¶		#pragma omp parallel num_threads(NUMBER_OF_THREADS)¶		srand(omp_get_thread_num());¶//		#pragma omp critical¶		cout << "Thread:" << omp_get_thread_num() << " Random:" << rand() << endl;¶	}¶¶}¶void computeAndPrintRandomsSequential() {¶¶	int* aRandomNumbers = new int[NUMBER_OF_RANDOMS];¶¶	randoms(aRandomNumbers, NUMBER_OF_RANDOMS);¶¶	printIntArray(aRandomNumbers, NUMBER_OF_RANDOMS);¶¶}¶void computeRandomsInParallelAndPrintRandoms(int aNumThreads) {¶¶	int* aRandomNumbers = new int[NUMBER_OF_RANDOMS];¶	#pragma omp parallel private(aRandomNumbers) num_threads (aNumThreads)¶	{¶//		int* aRandomNumbers = new int[NUMBER_OF_RANDOMS];¶		randoms(aRandomNumbers, NUMBER_OF_RANDOMS);¶	}¶//	#pragma omp parallel num_threads (aNumThreads)¶	printIntArray(aRandomNumbers, NUMBER_OF_RANDOMS);¶}¶¶¶//void random_main() {¶////	computeAndPrintSingleRandom();¶//	computeAndPrintRandoms();¶//}¶¶")]]]></diff>
+  </Command>
+  <Command __id="13305" _type="DiffBasedFileOpenCommand" date="Wed May 13 15:45:49 EDT 2020" projectName="null" starttimestamp="1589291180380" timestamp="107968758">
+    <filePath><![CDATA[null]]></filePath>
+    <diff><![CDATA[null]]></diff>
+  </Command>
+  <Command __id="13306" _type="DiffBasedFileOpenCommand" date="Wed May 13 15:45:49 EDT 2020" docASTNodeCount="1" docActiveCodeLength="2092" docExpressionCount="0" docLength="3369" projectName="OpenMPTraining" starttimestamp="1589291180380" timestamp="107969185">
+    <filePath><![CDATA[D:\dewan_backup\C\OpenMPTraining\OpenMPTrainingC++\src\random.cpp]]></filePath>
+    <diff><![CDATA[[Diff(EQUAL,"#include <iostream>¶#include <omp.h>¶#include <stdlib.h>¶#include <math.h>¶using namespace std;¶¶const int NUMBER_OF_RANDOMS = 10;¶const int NUMBER_OF_THREADS = 1;¶struct ThreadIndices {¶	int startIndex, endIndex;¶};¶ThreadIndices computeThreadIndices (int aStartIndex, int anEndIndex);¶//ThreadIndices computeThreadIndices (int aStartIndex, int anEndIndex) {¶//	int aNumberOfIterations = anEndIndex - aStartIndex;¶//	int aThreadNumIterations = aNumberOfIterations/omp_get_num_threads();¶//	int aThreadStartIndex = aThreadNumIterations*omp_get_thread_num();¶//	int aRemainingIterations = aNumberOfIterations - (aThreadNumIterations*omp_get_num_threads());¶//	if (omp_get_thread_num() == omp_get_num_threads() -1 ) {¶//			aThreadNumIterations += aRemainingIterations;¶//	}¶//	ThreadIndices retVal;¶//	retVal.startIndex = aThreadStartIndex;¶//	retVal.endIndex = aThreadStartIndex + aThreadNumIterations;¶//	return retVal;¶//¶//}¶¶bool processIteration (int anIndex) {¶	bool retVal;¶	#pragma omp critical¶	retVal = ((anIndex + 1) % (omp_get_thread_num() + 1) == 0);¶	return retVal;¶}¶¶¶void randoms(int* aRandomNumbers, int aNumberOfRandoms) {¶	{¶//		srand(omp_get_thread_num());¶//		int aThreadNumIterations = aNumberOfRandoms/omp_get_num_threads();¶//		int aThreadStartIndex = aThreadNumIterations*omp_get_thread_num();¶//		int aRemainingIterations = aNumberOfRandoms - (aThreadNumIterations*omp_get_num_threads());¶//		if (omp_get_thread_num() == omp_get_num_threads() -1 ) {¶//				aThreadNumIterations += aRemainingIterations;¶//		}¶		ThreadIndices aThreadIndices = computeThreadIndices(0, aNumberOfRandoms);¶		#pragma omp critical¶		cout << "Thread:" << omp_get_thread_num()  << " allocated start index:" << aThreadIndices.startIndex << " and num end index: " << aThreadIndices.endIndex  << endl;¶		for (int anIndex = aThreadIndices.startIndex; anIndex < aThreadIndices.endIndex; anIndex++) {¶			aRandomNumbers[anIndex] = rand();¶		}¶	}¶}¶¶void printIntArray (int* anArray, int aSize) {¶	ThreadIndices aThreadIndices = computeThreadIndices(0, aSize);¶	cout << "Int Array:" << endl;¶	for (int anIndex = aThreadIndices.startIndex; anIndex < aThreadIndices.endIndex; anIndex++) {¶		cout << "Thread:" << omp_get_thread_num() << " Index:" << anIndex << " Value: " << anArray[anIndex] << endl;¶	}¶}¶¶void computeAndPrintSingleRandom() {¶//	#pragma omp parallel num_threads(NUMBER_OF_THREADS)¶	{¶		#pragma omp parallel num_threads(NUMBER_OF_THREADS)¶		srand(omp_get_thread_num());¶//		#pragma omp critical¶		cout << "Thread:" << omp_get_thread_num() << " Random:" << rand() << endl;¶	}¶¶}¶void computeAndPrintRandomsSequential() {¶¶	int* aRandomNumbers = new int[NUMBER_OF_RANDOMS];¶¶	randoms(aRandomNumbers, NUMBER_OF_RANDOMS);¶¶	printIntArray(aRandomNumbers, NUMBER_OF_RANDOMS);¶¶}¶void computeRandomsInParallelAndPrintRandoms(int aNumThreads) {¶¶	int* aRandomNumbers = new int[NUMBER_OF_RANDOMS];¶	#pragma omp parallel private(aRandomNumbers) num_threads (aNumThreads)¶	{¶//		int* aRandomNumbers = new int[NUMBER_OF_RANDOMS];¶		randoms(aRandomNumbers, NUMBER_OF_RANDOMS);¶	}¶//	#pragma omp parallel num_threads (aNumThreads)¶	printIntArray(aRandomNumbers, NUMBER_OF_RANDOMS);¶}¶¶¶//void random_main() {¶////	computeAndPrintSingleRandom();¶//	computeAndPrintRandoms();¶//}¶¶")]]]></diff>
+  </Command>
+  <Command __id="13310" _type="DiffBasedFileOpenCommand" date="Wed May 13 15:45:51 EDT 2020" projectName="null" starttimestamp="1589291180380" timestamp="107970703">
+    <filePath><![CDATA[null]]></filePath>
+    <diff><![CDATA[null]]></diff>
+  </Command>
+  <Command __id="13311" _type="DiffBasedFileOpenCommand" date="Wed May 13 15:45:51 EDT 2020" docASTNodeCount="1" docActiveCodeLength="2092" docExpressionCount="0" docLength="3369" projectName="OpenMPTraining" starttimestamp="1589291180380" timestamp="107971215">
+    <filePath><![CDATA[D:\dewan_backup\C\OpenMPTraining\OpenMPTrainingC++\src\random.cpp]]></filePath>
+    <diff><![CDATA[[Diff(EQUAL,"#include <iostream>¶#include <omp.h>¶#include <stdlib.h>¶#include <math.h>¶using namespace std;¶¶const int NUMBER_OF_RANDOMS = 10;¶const int NUMBER_OF_THREADS = 1;¶struct ThreadIndices {¶	int startIndex, endIndex;¶};¶ThreadIndices computeThreadIndices (int aStartIndex, int anEndIndex);¶//ThreadIndices computeThreadIndices (int aStartIndex, int anEndIndex) {¶//	int aNumberOfIterations = anEndIndex - aStartIndex;¶//	int aThreadNumIterations = aNumberOfIterations/omp_get_num_threads();¶//	int aThreadStartIndex = aThreadNumIterations*omp_get_thread_num();¶//	int aRemainingIterations = aNumberOfIterations - (aThreadNumIterations*omp_get_num_threads());¶//	if (omp_get_thread_num() == omp_get_num_threads() -1 ) {¶//			aThreadNumIterations += aRemainingIterations;¶//	}¶//	ThreadIndices retVal;¶//	retVal.startIndex = aThreadStartIndex;¶//	retVal.endIndex = aThreadStartIndex + aThreadNumIterations;¶//	return retVal;¶//¶//}¶¶bool processIteration (int anIndex) {¶	bool retVal;¶	#pragma omp critical¶	retVal = ((anIndex + 1) % (omp_get_thread_num() + 1) == 0);¶	return retVal;¶}¶¶¶void randoms(int* aRandomNumbers, int aNumberOfRandoms) {¶	{¶//		srand(omp_get_thread_num());¶//		int aThreadNumIterations = aNumberOfRandoms/omp_get_num_threads();¶//		int aThreadStartIndex = aThreadNumIterations*omp_get_thread_num();¶//		int aRemainingIterations = aNumberOfRandoms - (aThreadNumIterations*omp_get_num_threads());¶//		if (omp_get_thread_num() == omp_get_num_threads() -1 ) {¶//				aThreadNumIterations += aRemainingIterations;¶//		}¶		ThreadIndices aThreadIndices = computeThreadIndices(0, aNumberOfRandoms);¶		#pragma omp critical¶		cout << "Thread:" << omp_get_thread_num()  << " allocated start index:" << aThreadIndices.startIndex << " and num end index: " << aThreadIndices.endIndex  << endl;¶		for (int anIndex = aThreadIndices.startIndex; anIndex < aThreadIndices.endIndex; anIndex++) {¶			aRandomNumbers[anIndex] = rand();¶		}¶	}¶}¶¶void printIntArray (int* anArray, int aSize) {¶	ThreadIndices aThreadIndices = computeThreadIndices(0, aSize);¶	cout << "Int Array:" << endl;¶	for (int anIndex = aThreadIndices.startIndex; anIndex < aThreadIndices.endIndex; anIndex++) {¶		cout << "Thread:" << omp_get_thread_num() << " Index:" << anIndex << " Value: " << anArray[anIndex] << endl;¶	}¶}¶¶void computeAndPrintSingleRandom() {¶//	#pragma omp parallel num_threads(NUMBER_OF_THREADS)¶	{¶		#pragma omp parallel num_threads(NUMBER_OF_THREADS)¶		srand(omp_get_thread_num());¶//		#pragma omp critical¶		cout << "Thread:" << omp_get_thread_num() << " Random:" << rand() << endl;¶	}¶¶}¶void computeAndPrintRandomsSequential() {¶¶	int* aRandomNumbers = new int[NUMBER_OF_RANDOMS];¶¶	randoms(aRandomNumbers, NUMBER_OF_RANDOMS);¶¶	printIntArray(aRandomNumbers, NUMBER_OF_RANDOMS);¶¶}¶void computeRandomsInParallelAndPrintRandoms(int aNumThreads) {¶¶	int* aRandomNumbers = new int[NUMBER_OF_RANDOMS];¶	#pragma omp parallel private(aRandomNumbers) num_threads (aNumThreads)¶	{¶//		int* aRandomNumbers = new int[NUMBER_OF_RANDOMS];¶		randoms(aRandomNumbers, NUMBER_OF_RANDOMS);¶	}¶//	#pragma omp parallel num_threads (aNumThreads)¶	printIntArray(aRandomNumbers, NUMBER_OF_RANDOMS);¶}¶¶¶//void random_main() {¶////	computeAndPrintSingleRandom();¶//	computeAndPrintRandoms();¶//}¶¶")]]]></diff>
+  </Command>
+  <Command __id="13314" _type="DiffBasedFileOpenCommand" date="Wed May 13 15:45:52 EDT 2020" projectName="null" starttimestamp="1589291180380" timestamp="107972227">
+    <filePath><![CDATA[null]]></filePath>
+    <diff><![CDATA[null]]></diff>
+  </Command>
+  <Command __id="13316" _type="DiffBasedFileOpenCommand" date="Wed May 13 15:45:52 EDT 2020" docASTNodeCount="1" docActiveCodeLength="2092" docExpressionCount="0" docLength="3369" projectName="OpenMPTraining" starttimestamp="1589291180380" timestamp="107972569">
+    <filePath><![CDATA[D:\dewan_backup\C\OpenMPTraining\OpenMPTrainingC++\src\random.cpp]]></filePath>
+    <diff><![CDATA[[Diff(EQUAL,"#include <iostream>¶#include <omp.h>¶#include <stdlib.h>¶#include <math.h>¶using namespace std;¶¶const int NUMBER_OF_RANDOMS = 10;¶const int NUMBER_OF_THREADS = 1;¶struct ThreadIndices {¶	int startIndex, endIndex;¶};¶ThreadIndices computeThreadIndices (int aStartIndex, int anEndIndex);¶//ThreadIndices computeThreadIndices (int aStartIndex, int anEndIndex) {¶//	int aNumberOfIterations = anEndIndex - aStartIndex;¶//	int aThreadNumIterations = aNumberOfIterations/omp_get_num_threads();¶//	int aThreadStartIndex = aThreadNumIterations*omp_get_thread_num();¶//	int aRemainingIterations = aNumberOfIterations - (aThreadNumIterations*omp_get_num_threads());¶//	if (omp_get_thread_num() == omp_get_num_threads() -1 ) {¶//			aThreadNumIterations += aRemainingIterations;¶//	}¶//	ThreadIndices retVal;¶//	retVal.startIndex = aThreadStartIndex;¶//	retVal.endIndex = aThreadStartIndex + aThreadNumIterations;¶//	return retVal;¶//¶//}¶¶bool processIteration (int anIndex) {¶	bool retVal;¶	#pragma omp critical¶	retVal = ((anIndex + 1) % (omp_get_thread_num() + 1) == 0);¶	return retVal;¶}¶¶¶void randoms(int* aRandomNumbers, int aNumberOfRandoms) {¶	{¶//		srand(omp_get_thread_num());¶//		int aThreadNumIterations = aNumberOfRandoms/omp_get_num_threads();¶//		int aThreadStartIndex = aThreadNumIterations*omp_get_thread_num();¶//		int aRemainingIterations = aNumberOfRandoms - (aThreadNumIterations*omp_get_num_threads());¶//		if (omp_get_thread_num() == omp_get_num_threads() -1 ) {¶//				aThreadNumIterations += aRemainingIterations;¶//		}¶		ThreadIndices aThreadIndices = computeThreadIndices(0, aNumberOfRandoms);¶		#pragma omp critical¶		cout << "Thread:" << omp_get_thread_num()  << " allocated start index:" << aThreadIndices.startIndex << " and num end index: " << aThreadIndices.endIndex  << endl;¶		for (int anIndex = aThreadIndices.startIndex; anIndex < aThreadIndices.endIndex; anIndex++) {¶			aRandomNumbers[anIndex] = rand();¶		}¶	}¶}¶¶void printIntArray (int* anArray, int aSize) {¶	ThreadIndices aThreadIndices = computeThreadIndices(0, aSize);¶	cout << "Int Array:" << endl;¶	for (int anIndex = aThreadIndices.startIndex; anIndex < aThreadIndices.endIndex; anIndex++) {¶		cout << "Thread:" << omp_get_thread_num() << " Index:" << anIndex << " Value: " << anArray[anIndex] << endl;¶	}¶}¶¶void computeAndPrintSingleRandom() {¶//	#pragma omp parallel num_threads(NUMBER_OF_THREADS)¶	{¶		#pragma omp parallel num_threads(NUMBER_OF_THREADS)¶		srand(omp_get_thread_num());¶//		#pragma omp critical¶		cout << "Thread:" << omp_get_thread_num() << " Random:" << rand() << endl;¶	}¶¶}¶void computeAndPrintRandomsSequential() {¶¶	int* aRandomNumbers = new int[NUMBER_OF_RANDOMS];¶¶	randoms(aRandomNumbers, NUMBER_OF_RANDOMS);¶¶	printIntArray(aRandomNumbers, NUMBER_OF_RANDOMS);¶¶}¶void computeRandomsInParallelAndPrintRandoms(int aNumThreads) {¶¶	int* aRandomNumbers = new int[NUMBER_OF_RANDOMS];¶	#pragma omp parallel private(aRandomNumbers) num_threads (aNumThreads)¶	{¶//		int* aRandomNumbers = new int[NUMBER_OF_RANDOMS];¶		randoms(aRandomNumbers, NUMBER_OF_RANDOMS);¶	}¶//	#pragma omp parallel num_threads (aNumThreads)¶	printIntArray(aRandomNumbers, NUMBER_OF_RANDOMS);¶}¶¶¶//void random_main() {¶////	computeAndPrintSingleRandom();¶//	computeAndPrintRandoms();¶//}¶¶")]]]></diff>
+  </Command>
+  <Command __id="13318" _type="RunCommand" date="Wed May 13 15:45:56 EDT 2020" kind="HitBreakPoint" projectName="(Unknown)" starttimestamp="1589291180380" timestamp="107975866" type="Run" />
+  <Command __id="13319" _type="RunCommand" date="Wed May 13 15:45:56 EDT 2020" kind="HitBreakPoint" projectName="(Unknown)" starttimestamp="1589291180380" timestamp="107975866" type="Debug" />
+  <Command __id="13320" _type="RunCommand" date="Wed May 13 15:45:56 EDT 2020" kind="HitBreakPoint" projectName="(Unknown)" starttimestamp="1589291180380" timestamp="107975867" type="Run" />
+  <Command __id="13321" _type="RunCommand" date="Wed May 13 15:45:56 EDT 2020" kind="HitBreakPoint" projectName="(Unknown)" starttimestamp="1589291180380" timestamp="107976410" type="Run" />
+  <Command __id="13322" _type="RunCommand" date="Wed May 13 15:45:56 EDT 2020" kind="HitBreakPoint" projectName="(Unknown)" starttimestamp="1589291180380" timestamp="107976410" type="Debug" />
+  <Command __id="13323" _type="RunCommand" date="Wed May 13 15:45:56 EDT 2020" kind="HitBreakPoint" projectName="(Unknown)" starttimestamp="1589291180380" timestamp="107976410" type="Run" />
+  <Command __id="13326" _type="DiffBasedFileOpenCommand" date="Wed May 13 15:46:20 EDT 2020" docASTNodeCount="1" docActiveCodeLength="2092" docExpressionCount="0" docLength="3369" projectName="OpenMPTraining" starttimestamp="1589291180380" timestamp="107999869">
+    <filePath><![CDATA[D:\dewan_backup\C\OpenMPTraining\OpenMPTrainingC++\src\random.cpp]]></filePath>
+    <diff><![CDATA[[Diff(EQUAL,"#include <iostream>¶#include <omp.h>¶#include <stdlib.h>¶#include <math.h>¶using namespace std;¶¶const int NUMBER_OF_RANDOMS = 10;¶const int NUMBER_OF_THREADS = 1;¶struct ThreadIndices {¶	int startIndex, endIndex;¶};¶ThreadIndices computeThreadIndices (int aStartIndex, int anEndIndex);¶//ThreadIndices computeThreadIndices (int aStartIndex, int anEndIndex) {¶//	int aNumberOfIterations = anEndIndex - aStartIndex;¶//	int aThreadNumIterations = aNumberOfIterations/omp_get_num_threads();¶//	int aThreadStartIndex = aThreadNumIterations*omp_get_thread_num();¶//	int aRemainingIterations = aNumberOfIterations - (aThreadNumIterations*omp_get_num_threads());¶//	if (omp_get_thread_num() == omp_get_num_threads() -1 ) {¶//			aThreadNumIterations += aRemainingIterations;¶//	}¶//	ThreadIndices retVal;¶//	retVal.startIndex = aThreadStartIndex;¶//	retVal.endIndex = aThreadStartIndex + aThreadNumIterations;¶//	return retVal;¶//¶//}¶¶bool processIteration (int anIndex) {¶	bool retVal;¶	#pragma omp critical¶	retVal = ((anIndex + 1) % (omp_get_thread_num() + 1) == 0);¶	return retVal;¶}¶¶¶void randoms(int* aRandomNumbers, int aNumberOfRandoms) {¶	{¶//		srand(omp_get_thread_num());¶//		int aThreadNumIterations = aNumberOfRandoms/omp_get_num_threads();¶//		int aThreadStartIndex = aThreadNumIterations*omp_get_thread_num();¶//		int aRemainingIterations = aNumberOfRandoms - (aThreadNumIterations*omp_get_num_threads());¶//		if (omp_get_thread_num() == omp_get_num_threads() -1 ) {¶//				aThreadNumIterations += aRemainingIterations;¶//		}¶		ThreadIndices aThreadIndices = computeThreadIndices(0, aNumberOfRandoms);¶		#pragma omp critical¶		cout << "Thread:" << omp_get_thread_num()  << " allocated start index:" << aThreadIndices.startIndex << " and num end index: " << aThreadIndices.endIndex  << endl;¶		for (int anIndex = aThreadIndices.startIndex; anIndex < aThreadIndices.endIndex; anIndex++) {¶			aRandomNumbers[anIndex] = rand();¶		}¶	}¶}¶¶void printIntArray (int* anArray, int aSize) {¶	ThreadIndices aThreadIndices = computeThreadIndices(0, aSize);¶	cout << "Int Array:" << endl;¶	for (int anIndex = aThreadIndices.startIndex; anIndex < aThreadIndices.endIndex; anIndex++) {¶		cout << "Thread:" << omp_get_thread_num() << " Index:" << anIndex << " Value: " << anArray[anIndex] << endl;¶	}¶}¶¶void computeAndPrintSingleRandom() {¶//	#pragma omp parallel num_threads(NUMBER_OF_THREADS)¶	{¶		#pragma omp parallel num_threads(NUMBER_OF_THREADS)¶		srand(omp_get_thread_num());¶//		#pragma omp critical¶		cout << "Thread:" << omp_get_thread_num() << " Random:" << rand() << endl;¶	}¶¶}¶void computeAndPrintRandomsSequential() {¶¶	int* aRandomNumbers = new int[NUMBER_OF_RANDOMS];¶¶	randoms(aRandomNumbers, NUMBER_OF_RANDOMS);¶¶	printIntArray(aRandomNumbers, NUMBER_OF_RANDOMS);¶¶}¶void computeRandomsInParallelAndPrintRandoms(int aNumThreads) {¶¶	int* aRandomNumbers = new int[NUMBER_OF_RANDOMS];¶	#pragma omp parallel private(aRandomNumbers) num_threads (aNumThreads)¶	{¶//		int* aRandomNumbers = new int[NUMBER_OF_RANDOMS];¶		randoms(aRandomNumbers, NUMBER_OF_RANDOMS);¶	}¶//	#pragma omp parallel num_threads (aNumThreads)¶	printIntArray(aRandomNumbers, NUMBER_OF_RANDOMS);¶}¶¶¶//void random_main() {¶////	computeAndPrintSingleRandom();¶//	computeAndPrintRandoms();¶//}¶¶")]]]></diff>
+  </Command>
+  <Command __id="13330" _type="SelectTextCommand" caretOffset="241" date="Wed May 13 15:48:51 EDT 2020" end="297" start="241" starttimestamp="1589291180380" timestamp="108150966" />
+  <Command __id="13331" _type="CopyCommand" date="Wed May 13 15:48:52 EDT 2020" starttimestamp="1589291180380" timestamp="108151839" />
+</Events>
