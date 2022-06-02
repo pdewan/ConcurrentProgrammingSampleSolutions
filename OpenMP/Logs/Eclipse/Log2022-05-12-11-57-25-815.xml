@@ -1,0 +1,58 @@
+<Events startTimestamp="1652371045815" logVersion="1.0.0.202205120948">
+  <Command __id="717" _type="ShellCommand" date="Sat May 14 09:05:25 EDT 2022" starttimestamp="1652371045815" timestamp="162479434" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="720" _type="PauseCommand" date="Sat May 14 09:05:33 EDT 2022" range="5s-10s" starttimestamp="1652371045815" timestamp="162488019">
+    <prevType><![CDATA[Gained Focus]]></prevType>
+    <prev><![CDATA[ShellCommand]]></prev>
+    <pause><![CDATA[8585]]></pause>
+    <nextType><![CDATA[Lost Focus]]></nextType>
+    <next><![CDATA[ShellCommand]]></next>
+  </Command>
+  <Command __id="719" _type="ShellCommand" date="Sat May 14 09:05:33 EDT 2022" starttimestamp="1652371045815" timestamp="162488019" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="722" _type="PauseCommand" date="Sat May 14 09:06:16 EDT 2022" range="30s-1m" starttimestamp="1652371045815" timestamp="162530296">
+    <prevType><![CDATA[Lost Focus]]></prevType>
+    <prev><![CDATA[ShellCommand]]></prev>
+    <pause><![CDATA[42277]]></pause>
+    <nextType><![CDATA[Gained Focus]]></nextType>
+    <next><![CDATA[ShellCommand]]></next>
+  </Command>
+  <Command __id="721" _type="ShellCommand" date="Sat May 14 09:06:16 EDT 2022" starttimestamp="1652371045815" timestamp="162530296" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="723" _type="EclipseCommand" commandID="org.eclipse.ui.project.properties" date="Sat May 14 09:06:16 EDT 2022" starttimestamp="1652371045815" timestamp="162530320" />
+  <Command __id="725" _type="PauseCommand" date="Sat May 14 09:06:22 EDT 2022" range="5s-10s" starttimestamp="1652371045815" timestamp="162536319">
+    <prevType><![CDATA[Other]]></prevType>
+    <prev><![CDATA[EclipseCommand]]></prev>
+    <pause><![CDATA[5999]]></pause>
+    <nextType><![CDATA[Lost Focus]]></nextType>
+    <next><![CDATA[ShellCommand]]></next>
+  </Command>
+  <Command __id="724" _type="ShellCommand" date="Sat May 14 09:06:22 EDT 2022" starttimestamp="1652371045815" timestamp="162536319" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="727" _type="PauseCommand" date="Sat May 14 09:07:12 EDT 2022" range="30s-1m" starttimestamp="1652371045815" timestamp="162587054">
+    <prevType><![CDATA[Lost Focus]]></prevType>
+    <prev><![CDATA[ShellCommand]]></prev>
+    <pause><![CDATA[50735]]></pause>
+    <nextType><![CDATA[Gained Focus]]></nextType>
+    <next><![CDATA[ShellCommand]]></next>
+  </Command>
+  <Command __id="800" _type="ProgramExecutionEvent" className="/OpenMPTraining" date="Sat May 14 09:14:31 EDT 2022" kind="HitBreakPoint" projectName="(Unknown)" starttimestamp="1652371045815" timestamp="163025727" type="Run" />
+  <Command __id="802" _type="ProgramExecutionEvent" className="(Unknown)" date="Sat May 14 09:14:31 EDT 2022" kind="HitBreakPoint" projectName="(Unknown)" starttimestamp="1652371045815" timestamp="163025727" type="Debug" />
+  <Command __id="803" _type="ProgramExecutionEvent" className="/OpenMPTraining" date="Sat May 14 09:14:31 EDT 2022" kind="HitBreakPoint" projectName="(Unknown)" starttimestamp="1652371045815" timestamp="163025727" type="Run" />
+  <Command __id="804" _type="ProgramExecutionEvent" className="/OpenMPTraining" date="Sat May 14 09:14:32 EDT 2022" kind="HitBreakPoint" projectName="(Unknown)" starttimestamp="1652371045815" timestamp="163026257" type="Run" />
+  <Command __id="805" _type="ProgramExecutionEvent" className="(Unknown)" date="Sat May 14 09:14:32 EDT 2022" kind="HitBreakPoint" projectName="(Unknown)" starttimestamp="1652371045815" timestamp="163026258" type="Debug" />
+  <Command __id="806" _type="ProgramExecutionEvent" className="/OpenMPTraining" date="Sat May 14 09:14:32 EDT 2022" kind="HitBreakPoint" projectName="(Unknown)" starttimestamp="1652371045815" timestamp="163026258" type="Run" />
+  <Command __id="808" _type="PauseCommand" date="Sat May 14 09:14:50 EDT 2022" range="10s-20s" starttimestamp="1652371045815" timestamp="163044872">
+    <prevType><![CDATA[Other]]></prevType>
+    <prev><![CDATA[ProgramExecutionEvent]]></prev>
+    <pause><![CDATA[18613]]></pause>
+    <nextType><![CDATA[Lost Focus]]></nextType>
+    <next><![CDATA[ShellCommand]]></next>
+  </Command>
+  <Command __id="807" _type="ShellCommand" date="Sat May 14 09:14:50 EDT 2022" starttimestamp="1652371045815" timestamp="163044871" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="809" _type="ShellCommand" date="Sat May 14 09:14:50 EDT 2022" starttimestamp="1652371045815" timestamp="163045123" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="810" _type="ShellCommand" date="Sat May 14 09:14:51 EDT 2022" starttimestamp="1652371045815" timestamp="163045196" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="812" _type="PauseCommand" date="Sat May 14 09:14:53 EDT 2022" range="2s-5s" starttimestamp="1652371045815" timestamp="163047351">
+    <prevType><![CDATA[Lost Focus]]></prevType>
+    <prev><![CDATA[ShellCommand]]></prev>
+    <pause><![CDATA[2155]]></pause>
+    <nextType><![CDATA[Gained Focus]]></nextType>
+    <next><![CDATA[ShellCommand]]></next>
+  </Command>
+</Events>

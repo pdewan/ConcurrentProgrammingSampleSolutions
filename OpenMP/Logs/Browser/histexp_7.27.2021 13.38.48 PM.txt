@@ -1,0 +1,8 @@
+7/29/2021 20:09:56 PM	Create a New Repository	https://github.com/new
+7/29/2021 20:11:11 PM	pdewan/DemoOpenMPProject	https://github.com/pdewan/DemoOpenMPProject
+7/29/2021 20:17:05 PM	Your Repositories	https://github.com/pdewan
+7/29/2021 20:17:06 PM	Your Repositories	https://github.com/pdewan?tab=repositories
+7/29/2021 20:17:11 PM	Your Repositories	https://github.com/pdewan?tab=repositories&q=Open&type=&language=&sort=
+7/29/2021 20:17:12 PM	Your Repositories	https://github.com/pdewan?tab=repositories&q=OpenMP&type=&language=&sort=
+7/29/2021 20:17:30 PM	pdewan/OpenMPTraining: Project for OpenMP Training Workshops	https://github.com/pdewan/OpenMPTraining
+7/29/2021 20:17:26 PM	OpenMPTraining/Documents at master · pdewan/OpenMPTraining	https://github.com/pdewan/OpenMPTraining/tree/master/Documents

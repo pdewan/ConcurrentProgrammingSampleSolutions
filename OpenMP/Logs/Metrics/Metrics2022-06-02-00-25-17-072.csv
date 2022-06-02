@@ -1,0 +1,2 @@
+Id,Prediction,Date,File,StartTime,ElapsedTime,BusyTime,Commands,editOrInsertPercentage,debugPercentage,navigationPercentage,focusPercentage,removePercentage,editPercentage,COMMAND_RATE,NAVIGATION_RATE,DEBUG_RATE,FOCUS_RATE,EDIT_RATE,REMOVE_RATE,INSERT_RATE,webLinkTimes,Web Page Visits
+8,,Thu Jun 02 02:20:46 EDT 2022,course.properties,1654150846643,403504,0,(F)11,0.0,0.0,0.0,100.0,0.0,0.0,0.02729528535980149,0.0,0.0,0.02729528535980149,0.0,0.0,0.0,0.0,[]

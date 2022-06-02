@@ -1,0 +1,45 @@
+<Events startTimestamp="1654060071705" logVersion="1.0.0.202206010006">
+  <Command __id="1161" _type="ShellCommand" date="Thu Jun 02 00:13:14 EDT 2022" starttimestamp="1654060071705" timestamp="83122635" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="1165" _type="PauseCommand" date="Thu Jun 02 00:14:02 EDT 2022" range="30s-1m" starttimestamp="1654060071705" timestamp="83170858">
+    <prevType><![CDATA[Open File]]></prevType>
+    <prev><![CDATA[DiffBasedFileOpenCommand]]></prev>
+    <pause><![CDATA[47666]]></pause>
+    <nextType><![CDATA[Lost Focus]]></nextType>
+    <next><![CDATA[ShellCommand]]></next>
+  </Command>
+  <Command __id="1164" _type="ShellCommand" date="Thu Jun 02 00:14:02 EDT 2022" starttimestamp="1654060071705" timestamp="83170858" type="ECLIPSE_LOST_FOCUS" />
+  <Command __id="1167" _type="PauseCommand" date="Thu Jun 02 00:14:16 EDT 2022" range="10s-20s" starttimestamp="1654060071705" timestamp="83185222">
+    <prevType><![CDATA[Lost Focus]]></prevType>
+    <prev><![CDATA[ShellCommand]]></prev>
+    <pause><![CDATA[14364]]></pause>
+    <nextType><![CDATA[Gained Focus]]></nextType>
+    <next><![CDATA[ShellCommand]]></next>
+  </Command>
+  <Command __id="1166" _type="ShellCommand" date="Thu Jun 02 00:14:16 EDT 2022" starttimestamp="1654060071705" timestamp="83185222" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="1169" _type="PauseCommand" date="Thu Jun 02 00:14:19 EDT 2022" range="2s-5s" starttimestamp="1654060071705" timestamp="83187831">
+    <prevType><![CDATA[Gained Focus]]></prevType>
+    <prev><![CDATA[ShellCommand]]></prev>
+    <pause><![CDATA[2609]]></pause>
+    <nextType><![CDATA[Lost Focus]]></nextType>
+    <next><![CDATA[ShellCommand]]></next>
+  </Command>
+  <Command __id="1170" _type="WebVisitCommand" date="Thu Jun 02 00:14:38 EDT 2022" numVisits="14" searchString="pdewan/ConcurrentProgrammingSampleSolutions" starttimestamp="1654060071705" timestamp="83207199" url="https://github.com/pdewan/ConcurrentProgrammingSampleSolutions" />
+  <Command __id="1172" _type="WebVisitCommand" date="Thu Jun 02 00:14:38 EDT 2022" numVisits="3" searchString="ConcurrentProgrammingSampleSolutions/src at main · pdewan/ConcurrentProgrammingSampleSolutions" starttimestamp="1654060071705" timestamp="83207200" url="https://github.com/pdewan/ConcurrentProgrammingSampleSolutions/tree/main/src" />
+  <Command __id="1173" _type="WebVisitCommand" date="Thu Jun 02 00:14:38 EDT 2022" numVisits="2" searchString="First commit of example solutions · pdewan/ConcurrentProgrammingSampleSolutions@be66f77" starttimestamp="1654060071705" timestamp="83207201" url="https://github.com/pdewan/ConcurrentProgrammingSampleSolutions/commit/be66f77842c35e58bd798b25bac5b8429593de22" />
+  <Command __id="1174" _type="WebVisitCommand" date="Thu Jun 02 00:14:38 EDT 2022" numVisits="14" searchString="pdewan/ConcurrentProgrammingSampleSolutions" starttimestamp="1654060071705" timestamp="83207227" url="https://github.com/pdewan/ConcurrentProgrammingSampleSolutions" />
+  <Command __id="1175" _type="WebVisitCommand" date="Thu Jun 02 00:14:38 EDT 2022" numVisits="3" searchString="ConcurrentProgrammingSampleSolutions/src at main · pdewan/ConcurrentProgrammingSampleSolutions" starttimestamp="1654060071705" timestamp="83207229" url="https://github.com/pdewan/ConcurrentProgrammingSampleSolutions/tree/main/src" />
+  <Command __id="1177" _type="PauseCommand" date="Thu Jun 02 00:14:44 EDT 2022" range="5s-10s" starttimestamp="1654060071705" timestamp="83213210">
+    <prevType><![CDATA[Other]]></prevType>
+    <prev><![CDATA[WebVisitCommand]]></prev>
+    <pause><![CDATA[5981]]></pause>
+    <nextType><![CDATA[Gained Focus]]></nextType>
+    <next><![CDATA[ShellCommand]]></next>
+  </Command>
+  <Command __id="1176" _type="ShellCommand" date="Thu Jun 02 00:14:44 EDT 2022" starttimestamp="1654060071705" timestamp="83213210" type="ECLIPSE_GAINED_FOCUS" />
+  <Command __id="1179" _type="PauseCommand" date="Thu Jun 02 00:15:07 EDT 2022" range="20s-30s" starttimestamp="1654060071705" timestamp="83236100">
+    <prevType><![CDATA[Gained Focus]]></prevType>
+    <prev><![CDATA[ShellCommand]]></prev>
+    <pause><![CDATA[22890]]></pause>
+    <nextType><![CDATA[Lost Focus]]></nextType>
+    <next><![CDATA[ShellCommand]]></next>
+  </Command>
